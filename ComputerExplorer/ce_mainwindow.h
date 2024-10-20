@@ -7,4 +7,7 @@ public:
 	CEMainwindow(
 		QWidget* parent = nullptr
 	);
+
+public slots:
+	void printOnScreen();
 };
