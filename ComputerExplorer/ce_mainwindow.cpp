@@ -3,7 +3,7 @@
 #include <QtWidgets/QPushButton>
 #include <iostream>
 
-CEMainwindow::CEMainwindow(
+CEMainWindow::CEMainWindow(
 	QWidget* parent
 ) : QMainWindow { parent } {
 	setWindowTitle("Computer Explorer");
@@ -12,24 +12,28 @@ CEMainwindow::CEMainwindow(
 	QGridLayout* centerWidgetLayout = new QGridLayout(centerWidget);
 	QPushButton* outButton = new QPushButton("Click me", centerWidget);
 	QPushButton* secondButton = new QPushButton("Click here", centerWidget);
+	gameView = new CEGameView(centerWidget);
+	centerWidgetLayout->addWidget(gameView);
 	centerWidgetLayout->addWidget(outButton);
 	centerWidgetLayout->addWidget(secondButton);
 
 	setCentralWidget(centerWidget);
 
-	connect(outButton, &QPushButton::clicked, this, &CEMainwindow::printOnScreenClickMe);
-	connect(secondButton, &QPushButton::clicked, this, &CEMainwindow::printOnScreenClickHere);
+	connect(outButton, &QPushButton::clicked, this, &CEMainWindow::printOnScreenClickMe);
+	connect(secondButton, &QPushButton::clicked, this, &CEMainWindow::printOnScreenClickHere);
 	//resize(800, 600);
 }
 
-void CEMainwindow::printOnScreen() {
+void CEMainWindow::printOnScreen() {
 	std::cout << "Hello QT!" << std::endl;
 }
 
-void CEMainwindow::printOnScreenClickMe() {
+void CEMainWindow::printOnScreenClickMe() {
 	std::cout << "Click Me" << std::endl;
+	gameView->changeRectColor(Qt::blue);
 }
 
-void CEMainwindow::printOnScreenClickHere() {
+void CEMainWindow::printOnScreenClickHere() {
 	std::cout << "Click Here" << std::endl;
+	gameView->changeRectColor(Qt::green);
 }

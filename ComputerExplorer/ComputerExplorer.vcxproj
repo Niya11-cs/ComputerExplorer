@@ -115,7 +115,8 @@
       <AdditionalDependencies>Qt6Core.lib;Qt6Gui.lib;Qt6Widgets.lib;Qt6Network.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
-      <Command>C:\Qt\6.8.0\msvc2022_64\bin\moc.exe ce_mainwindow.h -o moc_ce_mainwindow.cpp</Command>
+      <Command>C:\Qt\6.8.0\msvc2022_64\bin\moc.exe ce_mainwindow.h -o moc_ce_mainwindow.cpp
+C:\Qt\6.8.0\msvc2022_64\bin\moc.exe ce_game_view.h -o moc_ce_game_view.cpp</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -135,12 +136,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ce_game_view.cpp" />
     <ClCompile Include="ce_mainwindow.cpp" />
     <ClCompile Include="computer_explorer.cpp" />
+    <ClCompile Include="moc_ce_game_view.cpp" />
     <ClCompile Include="moc_ce_mainwindow.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ce_game_view.h" />
     <ClInclude Include="ce_mainwindow.h" />
+    <ClInclude Include="rect.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

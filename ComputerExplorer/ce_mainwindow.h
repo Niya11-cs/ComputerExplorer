@@ -1,10 +1,11 @@
 #pragma once
 #include <QtWidgets/QMainWindow>
+#include "ce_game_view.h"
 
-class CEMainwindow : public QMainWindow {
+class CEMainWindow : public QMainWindow {
 	Q_OBJECT
 public:
-	CEMainwindow(
+	CEMainWindow(
 		QWidget* parent = nullptr
 	);
 
@@ -12,4 +13,7 @@ public slots:
 	void printOnScreen();
 	void printOnScreenClickMe();
 	void printOnScreenClickHere();
+
+private:
+	CEGameView* gameView;
 };

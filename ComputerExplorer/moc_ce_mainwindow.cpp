@@ -33,9 +33,9 @@ QT_WARNING_DISABLE_GCC("-Wuseless-cast")
 namespace {
 
 #ifdef QT_MOC_HAS_STRINGDATA
-struct qt_meta_stringdata_CLASSCEMainwindowENDCLASS_t {};
-constexpr auto qt_meta_stringdata_CLASSCEMainwindowENDCLASS = QtMocHelpers::stringData(
-    "CEMainwindow",
+struct qt_meta_stringdata_CLASSCEMainWindowENDCLASS_t {};
+constexpr auto qt_meta_stringdata_CLASSCEMainWindowENDCLASS = QtMocHelpers::stringData(
+    "CEMainWindow",
     "printOnScreen",
     "",
     "printOnScreenClickMe",
@@ -46,7 +46,7 @@ constexpr auto qt_meta_stringdata_CLASSCEMainwindowENDCLASS = QtMocHelpers::stri
 #endif // !QT_MOC_HAS_STRINGDATA
 } // unnamed namespace
 
-Q_CONSTINIT static const uint qt_meta_data_CLASSCEMainwindowENDCLASS[] = {
+Q_CONSTINIT static const uint qt_meta_data_CLASSCEMainWindowENDCLASS[] = {
 
  // content:
       12,       // revision
@@ -72,15 +72,15 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSCEMainwindowENDCLASS[] = {
        0        // eod
 };
 
-Q_CONSTINIT const QMetaObject CEMainwindow::staticMetaObject = { {
+Q_CONSTINIT const QMetaObject CEMainWindow::staticMetaObject = { {
     QMetaObject::SuperData::link<QMainWindow::staticMetaObject>(),
-    qt_meta_stringdata_CLASSCEMainwindowENDCLASS.offsetsAndSizes,
-    qt_meta_data_CLASSCEMainwindowENDCLASS,
+    qt_meta_stringdata_CLASSCEMainWindowENDCLASS.offsetsAndSizes,
+    qt_meta_data_CLASSCEMainWindowENDCLASS,
     qt_static_metacall,
     nullptr,
-    qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSCEMainwindowENDCLASS_t,
+    qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSCEMainWindowENDCLASS_t,
         // Q_OBJECT / Q_GADGET
-        QtPrivate::TypeAndForceComplete<CEMainwindow, std::true_type>,
+        QtPrivate::TypeAndForceComplete<CEMainWindow, std::true_type>,
         // method 'printOnScreen'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'printOnScreenClickMe'
@@ -91,10 +91,10 @@ Q_CONSTINIT const QMetaObject CEMainwindow::staticMetaObject = { {
     nullptr
 } };
 
-void CEMainwindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void CEMainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        auto *_t = static_cast<CEMainwindow *>(_o);
+        auto *_t = static_cast<CEMainWindow *>(_o);
         (void)_t;
         switch (_id) {
         case 0: _t->printOnScreen(); break;
@@ -106,20 +106,20 @@ void CEMainwindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
     (void)_a;
 }
 
-const QMetaObject *CEMainwindow::metaObject() const
+const QMetaObject *CEMainWindow::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *CEMainwindow::qt_metacast(const char *_clname)
+void *CEMainWindow::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_CLASSCEMainwindowENDCLASS.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_CLASSCEMainWindowENDCLASS.stringdata0))
         return static_cast<void*>(this);
     return QMainWindow::qt_metacast(_clname);
 }
 
-int CEMainwindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int CEMainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QMainWindow::qt_metacall(_c, _id, _a);
     if (_id < 0)

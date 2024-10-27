@@ -6,7 +6,7 @@
 int main(int argc, char* argv[]) {
 	QApplication app(argc, argv);
 
-	CEMainwindow* ceMainWindow = new CEMainwindow();
+	CEMainWindow* ceMainWindow = new CEMainWindow();
 	ceMainWindow->show();
 
 	return app.exec();
