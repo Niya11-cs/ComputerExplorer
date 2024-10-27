@@ -10,4 +10,6 @@ public:
 
 public slots:
 	void printOnScreen();
+	void printOnScreenClickMe();
+	void printOnScreenClickHere();
 };

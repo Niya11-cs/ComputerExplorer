@@ -17,11 +17,19 @@ CEMainwindow::CEMainwindow(
 
 	setCentralWidget(centerWidget);
 
-	connect(outButton, &QPushButton::clicked, this, &CEMainwindow::printOnScreen);
+	connect(outButton, &QPushButton::clicked, this, &CEMainwindow::printOnScreenClickMe);
+	connect(secondButton, &QPushButton::clicked, this, &CEMainwindow::printOnScreenClickHere);
 	//resize(800, 600);
 }
 
 void CEMainwindow::printOnScreen() {
 	std::cout << "Hello QT!" << std::endl;
+}
 
+void CEMainwindow::printOnScreenClickMe() {
+	std::cout << "Click Me" << std::endl;
+}
+
+void CEMainwindow::printOnScreenClickHere() {
+	std::cout << "Click Here" << std::endl;
 }
