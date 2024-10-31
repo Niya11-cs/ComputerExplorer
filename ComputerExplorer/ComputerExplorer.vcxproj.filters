@@ -30,6 +30,12 @@
     <ClCompile Include="moc_ce_game_view.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ce_game_app.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ce_game_state.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ce_mainwindow.h">
@@ -39,6 +45,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="rect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ce_game_app.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ce_game_state.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

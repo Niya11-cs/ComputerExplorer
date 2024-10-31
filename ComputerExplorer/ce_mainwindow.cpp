@@ -3,16 +3,29 @@
 #include <QtWidgets/QPushButton>
 #include <iostream>
 
+#include "ce_game_app.h"
+
 CEMainWindow::CEMainWindow(
+	CEGameApp* app,
 	QWidget* parent
-) : QMainWindow { parent } {
+) :
+	QMainWindow { parent },
+	app{ app }
+{
 	setWindowTitle("Computer Explorer");
 
 	QWidget* centerWidget = new QWidget(this);
 	QGridLayout* centerWidgetLayout = new QGridLayout(centerWidget);
 	QPushButton* outButton = new QPushButton("Click me", centerWidget);
 	QPushButton* secondButton = new QPushButton("Click here", centerWidget);
-	gameView = new CEGameView(centerWidget);
+
+	bitInput = new QLineEdit(centerWidget);
+	centerWidgetLayout->addWidget(bitInput);
+
+	QPushButton* submitByteButton = new QPushButton("Submit byte button", centerWidget);
+	centerWidgetLayout->addWidget(submitByteButton);
+
+	gameView = new CEGameView(app->getGameSatePtr(), centerWidget);
 	centerWidgetLayout->addWidget(gameView);
 	centerWidgetLayout->addWidget(outButton);
 	centerWidgetLayout->addWidget(secondButton);
@@ -21,6 +34,7 @@ CEMainWindow::CEMainWindow(
 
 	connect(outButton, &QPushButton::clicked, this, &CEMainWindow::printOnScreenClickMe);
 	connect(secondButton, &QPushButton::clicked, this, &CEMainWindow::printOnScreenClickHere);
+	connect(submitByteButton, &QPushButton::clicked, this, &CEMainWindow::submitByte);
 	//resize(800, 600);
 }
 
@@ -36,4 +50,10 @@ void CEMainWindow::printOnScreenClickMe() {
 void CEMainWindow::printOnScreenClickHere() {
 	std::cout << "Click Here" << std::endl;
 	gameView->changeRectColor(Qt::green);
+}
+
+void CEMainWindow::submitByte() {
+	std::cout << bitInput->text().toUtf8().constData() << std::endl;
+	app->setGameSateByte(bitInput->text());
+	gameView->update();
 }

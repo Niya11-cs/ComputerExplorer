@@ -1,13 +1,12 @@
 #include<QtWidgets/QApplication>
 #include<iostream>
-#include "ce_mainwindow.h"
-
+#include "ce_game_app.h"
 
 int main(int argc, char* argv[]) {
 	QApplication app(argc, argv);
 
-	CEMainWindow* ceMainWindow = new CEMainWindow();
-	ceMainWindow->show();
+	CEGameApp gameApp;
+	gameApp.run();
 
 	return app.exec();
 }
