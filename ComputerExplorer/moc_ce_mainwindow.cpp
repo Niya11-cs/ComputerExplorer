@@ -38,8 +38,8 @@ constexpr auto qt_meta_stringdata_CLASSCEMainWindowENDCLASS = QtMocHelpers::stri
     "CEMainWindow",
     "printOnScreen",
     "",
-    "printOnScreenClickMe",
-    "printOnScreenClickHere"
+    "recolourBlue",
+    "recolourGreen"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -83,9 +83,9 @@ Q_CONSTINIT const QMetaObject CEMainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<CEMainWindow, std::true_type>,
         // method 'printOnScreen'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'printOnScreenClickMe'
+        // method 'recolourBlue'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'printOnScreenClickHere'
+        // method 'recolourGreen'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -98,8 +98,8 @@ void CEMainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         (void)_t;
         switch (_id) {
         case 0: _t->printOnScreen(); break;
-        case 1: _t->printOnScreenClickMe(); break;
-        case 2: _t->printOnScreenClickHere(); break;
+        case 1: _t->recolourBlue(); break;
+        case 2: _t->recolourGreen(); break;
         default: ;
         }
     }

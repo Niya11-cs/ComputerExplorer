@@ -145,6 +145,7 @@ C:\Qt\6.8.0\msvc2022_64\bin\moc.exe ce_game_view.h -o moc_ce_game_view.cpp</Comm
   <ItemGroup>
     <ClInclude Include="ce_game_view.h" />
     <ClInclude Include="ce_mainwindow.h" />
+    <ClInclude Include="circle.h" />
     <ClInclude Include="rect.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

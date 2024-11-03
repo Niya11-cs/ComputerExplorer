@@ -10,17 +10,17 @@ CEMainWindow::CEMainWindow(
 
 	QWidget* centerWidget = new QWidget(this);
 	QGridLayout* centerWidgetLayout = new QGridLayout(centerWidget);
-	QPushButton* outButton = new QPushButton("Click me", centerWidget);
-	QPushButton* secondButton = new QPushButton("Click here", centerWidget);
+	QPushButton* blueButton = new QPushButton("Recolour blue", centerWidget);
+	QPushButton* greenButton = new QPushButton("Recolour green", centerWidget);
 	gameView = new CEGameView(centerWidget);
 	centerWidgetLayout->addWidget(gameView);
-	centerWidgetLayout->addWidget(outButton);
-	centerWidgetLayout->addWidget(secondButton);
+	centerWidgetLayout->addWidget(blueButton);
+	centerWidgetLayout->addWidget(greenButton);
 
 	setCentralWidget(centerWidget);
 
-	connect(outButton, &QPushButton::clicked, this, &CEMainWindow::printOnScreenClickMe);
-	connect(secondButton, &QPushButton::clicked, this, &CEMainWindow::printOnScreenClickHere);
+	connect(blueButton, &QPushButton::clicked, this, &CEMainWindow::recolourBlue);
+	connect(greenButton, &QPushButton::clicked, this, &CEMainWindow::recolourGreen);
 	//resize(800, 600);
 }
 
@@ -28,12 +28,12 @@ void CEMainWindow::printOnScreen() {
 	std::cout << "Hello QT!" << std::endl;
 }
 
-void CEMainWindow::printOnScreenClickMe() {
-	std::cout << "Click Me" << std::endl;
+void CEMainWindow::recolourBlue() {
+	std::cout << "Recolur the rectangle blue" << std::endl;
 	gameView->changeRectColor(Qt::blue);
 }
 
-void CEMainWindow::printOnScreenClickHere() {
-	std::cout << "Click Here" << std::endl;
+void CEMainWindow::recolourGreen() {
+	std::cout << "Recolur the rectangle green" << std::endl;
 	gameView->changeRectColor(Qt::green);
 }

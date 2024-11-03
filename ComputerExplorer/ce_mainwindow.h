@@ -2,6 +2,7 @@
 #include <QtWidgets/QMainWindow>
 #include "ce_game_view.h"
 
+// CEMainWindow contens and manages the whole UI of the game
 class CEMainWindow : public QMainWindow {
 	Q_OBJECT
 public:
@@ -11,8 +12,12 @@ public:
 
 public slots:
 	void printOnScreen();
-	void printOnScreenClickMe();
-	void printOnScreenClickHere();
+
+	//update the rect in the game view
+	void recolourBlue();
+	
+	//update the rect in the game view
+	void recolourGreen();
 
 private:
 	CEGameView* gameView;
