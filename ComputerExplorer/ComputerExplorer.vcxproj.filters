@@ -18,10 +18,7 @@
     <ClCompile Include="computer_explorer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ce_mainwindow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="moc_ce_mainwindow.cpp">
+    <ClCompile Include="ce_main_window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ce_game_view.cpp">
@@ -30,9 +27,12 @@
     <ClCompile Include="moc_ce_game_view.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="moc_ce_main_window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ce_mainwindow.h">
+    <ClInclude Include="ce_main_window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ce_game_view.h">

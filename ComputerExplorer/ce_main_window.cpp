@@ -1,4 +1,4 @@
-#include "ce_mainwindow.h"
+#include "ce_main_window.h"
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QPushButton>
 #include <iostream>
