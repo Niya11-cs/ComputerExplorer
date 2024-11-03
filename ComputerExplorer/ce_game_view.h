@@ -11,6 +11,8 @@ public:
 	
 	//change the color wich is drawn on the screen
 	void changeRectColor(Qt::GlobalColor color);
+
+	void setByteStr(QString byteStr);
 protected:
 
 	//Update CEGameView content
@@ -18,4 +20,5 @@ protected:
 private:
 	Rect testRect;
 	Circle testCircle;
+	QString byteStr;
 };

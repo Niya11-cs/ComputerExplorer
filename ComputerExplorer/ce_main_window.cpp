@@ -1,6 +1,7 @@
 #include "ce_main_window.h"
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QPushButton>
+
 #include <iostream>
 
 CEMainWindow::CEMainWindow(
@@ -13,12 +14,17 @@ CEMainWindow::CEMainWindow(
 	QPushButton* blueButton = new QPushButton("Recolour blue", centerWidget);
 	QPushButton* greenButton = new QPushButton("Recolour green", centerWidget);
 	gameView = new CEGameView(centerWidget);
+	byteLineEdit = new QLineEdit(centerWidget);
+	QPushButton* submitByteButton = new QPushButton("Submit Byte", centerWidget);
+	centerWidgetLayout->addWidget(byteLineEdit);
+	centerWidgetLayout->addWidget(submitByteButton);
 	centerWidgetLayout->addWidget(gameView);
 	centerWidgetLayout->addWidget(blueButton);
 	centerWidgetLayout->addWidget(greenButton);
 
 	setCentralWidget(centerWidget);
 
+	connect(submitByteButton, &QPushButton::clicked, this, &CEMainWindow::submitByte);
 	connect(blueButton, &QPushButton::clicked, this, &CEMainWindow::recolourBlue);
 	connect(greenButton, &QPushButton::clicked, this, &CEMainWindow::recolourGreen);
 	//resize(800, 600);
@@ -26,6 +32,13 @@ CEMainWindow::CEMainWindow(
 
 void CEMainWindow::printOnScreen() {
 	std::cout << "Hello QT!" << std::endl;
+}
+
+void CEMainWindow::submitByte() {
+	QString str = byteLineEdit->text();
+	std::string stdStr = str.toUtf8().constData();
+	std::cout << stdStr << std::endl;
+	gameView->setByteStr(str);
 }
 
 void CEMainWindow::recolourBlue() {

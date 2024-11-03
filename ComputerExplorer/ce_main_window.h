@@ -1,5 +1,7 @@
 #pragma once
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QLineEdit>
+
 #include "ce_game_view.h"
 
 // CEMainWindow contens and manages the whole UI of the game
@@ -19,6 +21,8 @@ public slots:
 	//update the rect in the game view
 	void recolourGreen();
 
+	void submitByte();
 private:
 	CEGameView* gameView;
+	QLineEdit* byteLineEdit;
 };
