@@ -1,7 +1,9 @@
-#pragma once
+﻿#pragma once
 #include <QtWidgets/QFrame>
 #include "rect.h"
 #include "circle.h"
+
+
 
 // CEGameView is a custom widget derived from QFrame, representing the main view for a game.
 class CEGameView : public QFrame {
@@ -22,3 +24,5 @@ private:
 	Circle testCircle;
 	QString byteStr;
 };
+
+
