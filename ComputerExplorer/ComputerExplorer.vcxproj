@@ -137,6 +137,7 @@ moc.exe ce_game_view.h -o moc_ce_game_view.cpp</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ce_game_application.cpp" />
+    <ClCompile Include="ce_game_state.cpp" />
     <ClCompile Include="ce_game_view.cpp" />
     <ClCompile Include="ce_main_window.cpp" />
     <ClCompile Include="computer_explorer.cpp" />
@@ -145,6 +146,7 @@ moc.exe ce_game_view.h -o moc_ce_game_view.cpp</Command>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ce_game_application.h" />
+    <ClInclude Include="ce_game_state.h" />
     <ClInclude Include="ce_game_view.h" />
     <ClInclude Include="ce_main_window.h" />
     <ClInclude Include="circle.h" />

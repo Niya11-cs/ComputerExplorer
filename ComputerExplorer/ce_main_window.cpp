@@ -1,19 +1,25 @@
 #include "ce_main_window.h"
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QPushButton>
+#include "ce_game_application.h"
 
 #include <iostream>
 
 CEMainWindow::CEMainWindow(
+	CEGameState* gameState,
+	CEGameApplication* gameApplication,
 	QWidget* parent
-) : QMainWindow { parent } {
+) :
+	QMainWindow { parent }, 
+	gameApplication{ gameApplication }
+{
 	setWindowTitle("Computer Explorer");
 
 	QWidget* centerWidget = new QWidget(this);
 	QGridLayout* centerWidgetLayout = new QGridLayout(centerWidget);
 	QPushButton* blueButton = new QPushButton("Recolour blue", centerWidget);
 	QPushButton* greenButton = new QPushButton("Recolour green", centerWidget);
-	gameView = new CEGameView(centerWidget);
+	gameView = new CEGameView(gameState, centerWidget);
 	byteLineEdit = new QLineEdit(centerWidget);
 	QPushButton* submitByteButton = new QPushButton("Submit Byte", centerWidget);
 	centerWidgetLayout->addWidget(byteLineEdit);
@@ -38,7 +44,8 @@ void CEMainWindow::submitByte() {
 	QString str = byteLineEdit->text();
 	std::string stdStr = str.toUtf8().constData();
 	std::cout << stdStr << std::endl;
-	gameView->setByteStr(str);
+	gameApplication->setByteStr(str);
+	gameView->update();
 }
 
 void CEMainWindow::recolourBlue() {

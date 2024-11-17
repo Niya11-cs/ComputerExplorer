@@ -4,11 +4,16 @@
 
 #include "ce_game_view.h"
 
+class CEGameApplication;
+class CEGameState;
+
 // CEMainWindow contens and manages the whole UI of the game
 class CEMainWindow : public QMainWindow {
 	Q_OBJECT
 public:
 	CEMainWindow(
+		CEGameState* gameState,
+		CEGameApplication* gameApplication,
 		QWidget* parent = nullptr
 	);
 
@@ -24,5 +29,6 @@ public slots:
 	void submitByte();
 private:
 	CEGameView* gameView;
+	CEGameApplication* gameApplication;
 	QLineEdit* byteLineEdit;
 };
