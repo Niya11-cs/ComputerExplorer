@@ -30,7 +30,6 @@ void CEGameView::paintEvent(QPaintEvent* event) {
 			painter.drawLine((strIdx * 20) + 20, 100, (strIdx * 20) + 20, 250);
 		}
 	}
-
 }
 
 void CEGameView::changeRectColor(Qt::GlobalColor color) {

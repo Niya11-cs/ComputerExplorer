@@ -4,6 +4,13 @@
 
 #include "ce_game_view.h"
 
+class LineEditTable : public QWidget {
+    Q_OBJECT
+
+public:
+	explicit LineEditTable(int rows, int columns, QWidget* parent = nullptr);
+};
+
 // CEMainWindow contens and manages the whole UI of the game
 class CEMainWindow : public QMainWindow {
 	Q_OBJECT
