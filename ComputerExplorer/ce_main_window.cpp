@@ -2,6 +2,7 @@
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QPushButton>
 #include "ce_game_application.h"
+#include "ce_ram_widget.h"
 
 #include <iostream>
 
@@ -17,16 +18,18 @@ CEMainWindow::CEMainWindow(
 
 	QWidget* centerWidget = new QWidget(this);
 	QGridLayout* centerWidgetLayout = new QGridLayout(centerWidget);
+
+	ramWidget = new CERamWidget(centerWidget);
 	QPushButton* blueButton = new QPushButton("Recolour blue", centerWidget);
 	QPushButton* greenButton = new QPushButton("Recolour green", centerWidget);
 	gameView = new CEGameView(gameState, centerWidget);
 	byteLineEdit = new QLineEdit(centerWidget);
 	QPushButton* submitByteButton = new QPushButton("Submit Byte", centerWidget);
-	centerWidgetLayout->addWidget(byteLineEdit);
-	centerWidgetLayout->addWidget(submitByteButton);
-	centerWidgetLayout->addWidget(gameView);
-	centerWidgetLayout->addWidget(blueButton);
-	centerWidgetLayout->addWidget(greenButton);
+	centerWidgetLayout->addWidget(byteLineEdit, 0, 0);
+	centerWidgetLayout->addWidget(submitByteButton, 1, 0);
+	centerWidgetLayout->addWidget(gameView, 2, 0);
+	centerWidgetLayout->addWidget(blueButton, 3, 0);
+	centerWidgetLayout->addWidget(greenButton, 4, 0);
 
 	setCentralWidget(centerWidget);
 

@@ -36,6 +36,12 @@
     <ClCompile Include="ce_game_state.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ce_ram_widget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="moc_ce_ram_widget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ce_main_window.h">
@@ -54,6 +60,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ce_game_state.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ce_ram_widget.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

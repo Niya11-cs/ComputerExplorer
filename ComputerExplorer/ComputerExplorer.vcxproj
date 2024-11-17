@@ -116,7 +116,8 @@
     </Link>
     <PreBuildEvent>
       <Command>moc.exe ce_main_window.h -o moc_ce_main_window.cpp
-moc.exe ce_game_view.h -o moc_ce_game_view.cpp</Command>
+moc.exe ce_game_view.h -o moc_ce_game_view.cpp
+moc.exe ce_ram_widget.h -o moc_ce_ram_widget.cpp</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -140,15 +141,18 @@ moc.exe ce_game_view.h -o moc_ce_game_view.cpp</Command>
     <ClCompile Include="ce_game_state.cpp" />
     <ClCompile Include="ce_game_view.cpp" />
     <ClCompile Include="ce_main_window.cpp" />
+    <ClCompile Include="ce_ram_widget.cpp" />
     <ClCompile Include="computer_explorer.cpp" />
     <ClCompile Include="moc_ce_game_view.cpp" />
     <ClCompile Include="moc_ce_main_window.cpp" />
+    <ClCompile Include="moc_ce_ram_widget.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ce_game_application.h" />
     <ClInclude Include="ce_game_state.h" />
     <ClInclude Include="ce_game_view.h" />
     <ClInclude Include="ce_main_window.h" />
+    <ClInclude Include="ce_ram_widget.h" />
     <ClInclude Include="circle.h" />
     <ClInclude Include="rect.h" />
   </ItemGroup>

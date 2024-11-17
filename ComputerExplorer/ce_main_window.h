@@ -6,6 +6,7 @@
 
 class CEGameApplication;
 class CEGameState;
+class CERamWidget;
 
 // CEMainWindow contens and manages the whole UI of the game
 class CEMainWindow : public QMainWindow {
@@ -31,4 +32,5 @@ private:
 	CEGameView* gameView;
 	CEGameApplication* gameApplication;
 	QLineEdit* byteLineEdit;
+	CERamWidget* ramWidget;
 };
