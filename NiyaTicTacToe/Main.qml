@@ -22,11 +22,12 @@ Window {
                 height: parent.height / 3
                 border.color: "blue"
                 border.width: 2
+                color: playerIndex === 1 ? "lightblue" : "lightgrey"
 
                 Image{
                     id: image
                     anchors.fill: parent
-                    source: parent.playerIndex === 0 ? "images/x.png": "images/circle.png"
+                    source: parent.playerIndex === 0 ? "images/x.png" : "images/circle.png"
                     visible: false
                 }
 
