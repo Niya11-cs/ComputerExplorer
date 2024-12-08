@@ -17,6 +17,7 @@ qt_add_qml_module(appQMLTest
     VERSION 1.0
     QML_FILES
         Main.qml
+        SOURCES ram_model.h ram_model.cpp
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

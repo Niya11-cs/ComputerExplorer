@@ -1,11 +1,15 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include "ram_model.h"
+#include <QQmlContext>
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
+    RamModel ramModel;
+    engine.rootContext()->setContextProperty("ramModel", &ramModel);
     QObject::connect(
         &engine,
         &QQmlApplicationEngine::objectCreationFailed,

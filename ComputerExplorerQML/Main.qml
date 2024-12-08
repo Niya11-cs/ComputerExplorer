@@ -23,16 +23,45 @@ Window {
                 MouseArea{
                     anchors.fill: parent
                     onClicked: {
-                        console.log("start program")
+                        console.log("start program");
+                        ramModel.startProgram();
                     }
                 }
             }
         }
 
         Rectangle{
-            color: "green"
+            color: "cyan"
             Layout.fillWidth: true
-            Layout.fillHeight: true
+            Layout.preferredHeight: root.height * 3 / 4
+
+            GridLayout{
+                id: ramLayout
+                anchors.centerIn: parent
+                rows: 16
+                columns: 2
+                rowSpacing: 0
+                columnSpacing: 0
+
+
+                Repeater{
+                    model: ramLayout.rows * ramLayout.columns
+
+                    Rectangle{
+                        border.color: "green"
+                        border.width: 2
+                        color: "white"
+                        width: 100
+                        height: 30
+
+                        TextInput{
+                            anchors.centerIn: parent
+                            text: "0000"
+                            font.pixelSize: parent.height - 10
+                        }
+                    }
+                }
+            }
         }
     }
 }
