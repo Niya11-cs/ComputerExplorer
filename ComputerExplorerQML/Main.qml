@@ -12,7 +12,7 @@ Window {
         anchors.fill: parent
 
         Rectangle{
-            color: "blue"
+            color: "#5fff5e"
             Layout.fillWidth: true
             Layout.preferredHeight: root.height/4
             Rectangle{
@@ -31,7 +31,7 @@ Window {
         }
 
         Rectangle{
-            color: "cyan"
+            color: "#5fff5e"
             Layout.fillWidth: true
             Layout.preferredHeight: root.height * 3 / 4
 
@@ -40,8 +40,8 @@ Window {
                 anchors.centerIn: parent
                 rows: 16
                 columns: 2
-                rowSpacing: 0
-                columnSpacing: 0
+                rowSpacing: -2
+                columnSpacing: -2
 
 
                 Repeater{
@@ -51,12 +51,12 @@ Window {
                         border.color: "green"
                         border.width: 2
                         color: "white"
-                        width: 100
+                        width: (index % 2) === 0 ? 60 : 140
                         height: 30
 
                         TextInput{
                             anchors.centerIn: parent
-                            text: "0000"
+                            text: (index % 2) === 0 ? "0000" : "0000 0000"
                             font.pixelSize: parent.height - 10
                         }
                     }
