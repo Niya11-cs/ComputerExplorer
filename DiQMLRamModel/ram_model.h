@@ -9,7 +9,11 @@ static const int RAM_COLS_COUNT = 2;
 
 struct RamCell {
     bool active;
+    bool passive;
+    QString value;
 };
+
+Q_DECLARE_METATYPE(RamCell)
 
 class RamModel : public QAbstractListModel {
     Q_OBJECT
@@ -17,7 +21,9 @@ public:
     explicit RamModel(QObject *parent = nullptr);
 
     enum Roles {
-        ActiveRole = Qt::UserRole + 1
+        ActiveRole = Qt::UserRole + 1,
+        PassiveRole,
+        CellValueRole
     };
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;

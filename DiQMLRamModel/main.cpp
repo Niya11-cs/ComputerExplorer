@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("ramModel", &ramModel);
 
-    const QUrl url(u"qrc:/Flags/Main.qml"_qs);
+    const QUrl url(u"qrc:/DiQMLRamModel/Main.qml"_qs);
     QObject::connect(
         &engine,
         &QQmlApplicationEngine::objectCreationFailed,

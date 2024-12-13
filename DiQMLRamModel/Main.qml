@@ -54,14 +54,19 @@ Window {
                     Rectangle {
                         width: index % 2 ? 120 : 60
                         height: 30
-                        color: active ? "pink" : "white"
+                        color: active ? "pink" : (passive ? "grey" : "white")
                         border.color: "green"
                         border.width: 2
 
                         TextInput {
-                            anchors.centerIn: parent
-                            text: index % 2 ? "0101 0101" : "0101"
+                            anchors.fill: parent
+                            //text: index % 2 ? "0101 0101" : "0101"
                             font.pixelSize: 20
+                            horizontalAlignment: TextInput.AlignHCenter
+                            verticalAlignment: TextInput.AlignVCenter
+                            onTextChanged: {
+                                cellValue = text
+                            }
                         }
                     }
                 }
