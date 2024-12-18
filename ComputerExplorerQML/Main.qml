@@ -14,7 +14,7 @@ Window {
         Rectangle{
             color: "#5fff5e"
             Layout.fillWidth: true
-            Layout.preferredHeight: root.height/4
+            Layout.preferredHeight: root.height / 8
             Rectangle{
                 color: "red"
                 width: 40
@@ -33,35 +33,70 @@ Window {
         Rectangle{
             color: "#5fff5e"
             Layout.fillWidth: true
-            Layout.preferredHeight: root.height * 3 / 4
+            Layout.preferredHeight: root.height * 5 / 8
 
-            GridLayout{
-                id: ramLayout
+            ColumnLayout{
                 anchors.centerIn: parent
-                rows: 16
-                columns: 2
-                rowSpacing: -2
-                columnSpacing: -2
+                spacing: 0
+
+                Rectangle{
+                    color: "transparent"
+                    Layout.preferredHeight: 20
+                    Layout.fillWidth: true
+                    Text {
+                        anchors.centerIn: parent
+                        text: "RAM"
+                        color: "green"
+                        font.pixelSize: 20
+                    }
+                }
+
+                GridLayout{
+                    id: ramLayout
+                    rows: 16
+                    columns: 2
+                    rowSpacing: -2
+                    columnSpacing: -2
 
 
-                Repeater{
-                    model: ramLayout.rows * ramLayout.columns
+                    Repeater{
+                        model: ramLayout.rows * ramLayout.columns
 
-                    Rectangle{
-                        border.color: "green"
-                        border.width: 2
-                        color: "white"
-                        width: (index % 2) === 0 ? 60 : 140
-                        height: 30
+                        Rectangle{
+                            border.color: "green"
+                            border.width: 2
+                            color: "white"
+                            width: (index % 2) === 0 ? 60 : 140
+                            height: 30
 
-                        TextInput{
-                            anchors.centerIn: parent
-                            text: (index % 2) === 0 ? "0000" : "0000 0000"
-                            font.pixelSize: parent.height - 10
+                            TextInput{
+                                anchors.centerIn: parent
+                                text: (index % 2) === 0 ? "0000" : "0000 0000"
+                                font.pixelSize: parent.height - 10
+                            }
                         }
                     }
                 }
             }
+        }
+
+        Rectangle{
+            color: "grey"
+            Layout.fillWidth: true
+            Layout.preferredHeight: root.height * 2 /  8
+
+            Rectangle{
+                color: "black"
+                anchors.fill: parent
+                anchors.margins: 8
+                Text{
+                    anchors.centerIn: parent;
+                    text: "255"
+                    color: "white"
+                    font.pixelSize: 64
+                }
+            }
+
         }
     }
 }
