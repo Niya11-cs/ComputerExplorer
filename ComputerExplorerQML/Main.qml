@@ -16,10 +16,19 @@ Window {
             Layout.fillWidth: true
             Layout.preferredHeight: root.height / 8
             Rectangle{
-                color: "red"
+                color: "transparent"
                 width: 40
                 height: 40
                 anchors.centerIn: parent
+
+                Image {
+                        source: "images/play_button.png"
+                        anchors.centerIn: parent
+                        width: parent.width * 0.8
+                        height: parent.height * 0.8
+                        fillMode: Image.PreserveAspectFit
+                    }
+
                 MouseArea{
                     anchors.fill: parent
                     onClicked: {
