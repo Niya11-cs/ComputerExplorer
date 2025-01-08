@@ -60,12 +60,12 @@ Window {
 
 
                     Repeater{
-                        model: ramLayout.rows * ramLayout.columns
+                        model: ramModel
 
                         Rectangle{
                             border.color: "green"
                             border.width: 2
-                            color: "white"
+                            color: ramModel.active ? "pink" : "white"
                             width: (index % 2) === 0 ? 60 : 140
                             height: 30
 
