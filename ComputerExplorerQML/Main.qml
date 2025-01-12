@@ -65,7 +65,8 @@ Window {
                         Rectangle{
                             border.color: "green"
                             border.width: 2
-                            color: ramModel.active ? "pink" : "white"
+                            color: active ? "pink" : (passive ? "grey" : "white")
+                            //color: active ? "pink" : "white"
                             width: (index % 2) === 0 ? 60 : 140
                             height: 30
 
