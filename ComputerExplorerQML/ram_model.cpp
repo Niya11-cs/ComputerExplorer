@@ -21,7 +21,11 @@ void RamModel::startProgram(){
 }
 
 void RamModel::executeInstruction(){
-    std::cout << "Program counter: " << programCounter << std::endl;
+    qDebug() << "Program counter: " << programCounter;
+    if(currentRow >= 0 && currentRow < RAM_ROWS_COUNT){
+        setName(ramCells[currentRow*2+1].value);
+        qDebug() << "Cell value: " << ramCells[currentRow*2+1].value;
+    }
 
     if (currentRow < RAM_ROWS_COUNT) {
         if (currentRow > 0) {
@@ -64,6 +68,8 @@ QVariant RamModel::data(const QModelIndex &index, int role) const {
         return cell.active;
     case PassiveRole:
         return cell.passive;
+    case ValueRole:
+        return cell.value;
     default:
         return QVariant();
     }
@@ -85,6 +91,11 @@ bool RamModel::setData(const QModelIndex &index, const QVariant &value, int role
         emit dataChanged(index, index, { PassiveRole });
         return true;
     }
+    else if(role == ValueRole && value.canConvert<QString>()){
+        ramCells[index.row()].value = value.toString();
+        emit dataChanged(index, index, { ValueRole });
+        return true;
+    }
 
     return false;
 }
@@ -93,5 +104,6 @@ QHash<int, QByteArray> RamModel::roleNames() const {
     QHash<int, QByteArray> roles;
     roles[ActiveRole] = "active";
     roles[PassiveRole] = "passive";
+    roles[ValueRole] = "value";
     return roles;
 }

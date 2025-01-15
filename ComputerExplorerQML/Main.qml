@@ -72,8 +72,12 @@ Window {
 
                             TextInput{
                                 anchors.centerIn: parent
-                                text: (index % 2) === 0 ? "0000" : "0000 0000"
+                                //text: (index % 2) === 0 ? "0000" : "0000 0000"
+                                text: index
                                 font.pixelSize: parent.height - 10
+                                onTextChanged:{
+                                    value = text
+                                }
                             }
                         }
                     }
@@ -92,7 +96,8 @@ Window {
                 anchors.margins: 8
                 Text{
                     anchors.centerIn: parent;
-                    text: "255"
+                    //text: "255"
+                    text: ramModel.name
                     color: "white"
                     font.pixelSize: 64
                 }
