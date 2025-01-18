@@ -1,5 +1,6 @@
 #include "ram_model.h"
 #include <iostream>
+#include <QRegularExpression>
 
 RamModel::RamModel(QObject *parent):QAbstractListModel(parent) {
 
@@ -25,6 +26,11 @@ void RamModel::executeInstruction(){
     if(currentRow >= 0 && currentRow < RAM_ROWS_COUNT){
         setName(ramCells[currentRow*2+1].value);
         qDebug() << "Cell value: " << ramCells[currentRow*2+1].value;
+
+        QRegularExpression regex("^OUT [01]{4}");
+        if (regex.match(ramCells[currentRow*2+1].value).hasMatch()) {
+            setName("OUT INSTRUCTION");
+        }
     }
 
     if (currentRow < RAM_ROWS_COUNT) {
