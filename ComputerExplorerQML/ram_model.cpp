@@ -1,5 +1,6 @@
 #include "ram_model.h"
 #include <iostream>
+#include <QRegularExpression>
 
 RamModel::RamModel(QObject *parent):QAbstractListModel(parent) {
 
@@ -10,6 +11,7 @@ RamModel::RamModel(QObject *parent):QAbstractListModel(parent) {
         }
     }
 
+    m_outputValue = "255";
     programCounter = 0;
     currentRow = 0;
     connect(&ramTimer, &QTimer::timeout, this, &RamModel::executeInstruction);
@@ -23,8 +25,18 @@ void RamModel::startProgram(){
 void RamModel::executeInstruction(){
     qDebug() << "Program counter: " << programCounter;
     if(currentRow >= 0 && currentRow < RAM_ROWS_COUNT){
-        setName(ramCells[currentRow*2+1].value);
-        qDebug() << "Cell value: " << ramCells[currentRow*2+1].value;
+        const QString cellValue = ramCells[currentRow*2+1].value;
+        setOutputValue(cellValue);
+        qDebug() << "Cell value: " << cellValue;
+
+        QRegularExpression regex("^OUT [01]{4}$");
+
+        if (cellValue == "STOP!") {
+            ramTimer.stop();
+        }
+        else if (regex.match(cellValue).hasMatch()) {
+            setOutputValue("Out instruction");
+        }
     }
 
     if (currentRow < RAM_ROWS_COUNT) {
@@ -106,4 +118,15 @@ QHash<int, QByteArray> RamModel::roleNames() const {
     roles[PassiveRole] = "passive";
     roles[ValueRole] = "value";
     return roles;
+}
+
+QString RamModel::outputValue() const {
+    return m_outputValue;
+}
+
+void RamModel::setOutputValue(const QString& outputValue) {
+    if (m_outputValue != outputValue) {
+        m_outputValue = outputValue;
+        emit outputValueChanged();
+    }
 }

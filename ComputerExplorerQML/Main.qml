@@ -97,7 +97,7 @@ Window {
                 Text{
                     anchors.centerIn: parent;
                     //text: "255"
-                    text: ramModel.name
+                    text: ramModel.outputValue
                     color: "white"
                     font.pixelSize: 64
                 }

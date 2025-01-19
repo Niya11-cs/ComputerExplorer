@@ -20,7 +20,7 @@ Q_DECLARE_METATYPE(RamCell)
 class RamModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
+    Q_PROPERTY(QString outputValue READ outputValue WRITE setOutputValue NOTIFY outputValueChanged)
 public:
     RamModel(QObject *parent = nullptr);
 
@@ -35,16 +35,11 @@ public:
     bool setData(const QModelIndex &index, const QVariant &value, int role) override;
     QHash<int, QByteArray> roleNames() const override;
 
-    QString name() const { return m_name; }
-    void setName(const QString &name) {
-        if (m_name != name) {
-            m_name = name;
-            emit nameChanged();
-        }
-    }
+    QString outputValue() const;
+    void setOutputValue(const QString& outputValue);
 
 signals:
-    void nameChanged();
+    void outputValueChanged();
 
 public slots:
     void startProgram();
@@ -54,7 +49,7 @@ private:
     QTimer ramTimer;
     int programCounter;
     int currentRow;
-    QString m_name = "1000";
+    QString m_outputValue;
 };
 
 #endif // RAM_MODEL_H
