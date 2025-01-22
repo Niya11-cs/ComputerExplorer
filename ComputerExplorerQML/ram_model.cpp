@@ -1,13 +1,17 @@
 #include "ram_model.h"
 #include <iostream>
-#include <QRegularExpression>
+
 
 RamModel::RamModel(QObject *parent):QAbstractListModel(parent) {
 
     ramCells.resize(RAM_ROWS_COUNT * RAM_COLS_COUNT);
     for (int rowIdx = 0; rowIdx < RAM_ROWS_COUNT; ++rowIdx) {
         for (int colIdx = 0; colIdx < RAM_COLS_COUNT; ++colIdx) {
-            ramCells[(rowIdx * RAM_COLS_COUNT) + colIdx] = RamCell{ false};
+            QString cellValue = "-";
+            if (colIdx == 0) {
+                cellValue = QString("%1").arg(rowIdx, 4, 2, QChar('0'));
+            }
+            ramCells[(rowIdx * RAM_COLS_COUNT) + colIdx] = RamCell{false, false, cellValue};
         }
     }
 
@@ -29,13 +33,11 @@ void RamModel::executeInstruction(){
         setOutputValue(cellValue);
         qDebug() << "Cell value: " << cellValue;
 
-        QRegularExpression regex("^OUT [01]{4}$");
-
-        if (cellValue == "STOP!") {
-            ramTimer.stop();
+        if (stopInstructionRegex.match(cellValue).hasMatch()) {
+            executeStopInstruction();
         }
-        else if (regex.match(cellValue).hasMatch()) {
-            setOutputValue("Out instruction");
+        else if (outInstructionRegex.match(cellValue).hasMatch()) {
+            executeOutInstruction(cellValue);
         }
     }
 
@@ -62,6 +64,17 @@ void RamModel::executeInstruction(){
 
 
     ++programCounter;
+}
+
+void RamModel::executeStopInstruction(){
+    ramTimer.stop();
+}
+
+void RamModel::executeOutInstruction(QString cellValue){
+    QStringList strArr = cellValue.split(' ');
+    bool ok;
+    int rowIdx = strArr[1].toInt(&ok, 2);
+    setOutputValue(ramCells[rowIdx*RAM_COLS_COUNT+1].value);
 }
 
 int RamModel::rowCount(const QModelIndex &parent) const {
