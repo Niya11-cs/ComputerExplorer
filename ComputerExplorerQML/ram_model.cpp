@@ -1,13 +1,17 @@
 #include "ram_model.h"
 #include <iostream>
-#include <QRegularExpression>
+#include <QString>
 
 RamModel::RamModel(QObject *parent):QAbstractListModel(parent) {
 
     ramCells.resize(RAM_ROWS_COUNT * RAM_COLS_COUNT);
     for (int rowIdx = 0; rowIdx < RAM_ROWS_COUNT; ++rowIdx) {
         for (int colIdx = 0; colIdx < RAM_COLS_COUNT; ++colIdx) {
-            ramCells[(rowIdx * RAM_COLS_COUNT) + colIdx] = RamCell{ false};
+            QString value = "-";
+            if (0 == colIdx) {
+                value = QString("%1").arg(rowIdx, 4, 2, QChar('0'));
+            }
+            ramCells[(rowIdx * RAM_COLS_COUNT) + colIdx] = RamCell{ false, false, value };
         }
     }
 
@@ -26,16 +30,14 @@ void RamModel::executeInstruction(){
     qDebug() << "Program counter: " << programCounter;
     if(currentRow >= 0 && currentRow < RAM_ROWS_COUNT){
         const QString cellValue = ramCells[currentRow*2+1].value;
-        setOutputValue(cellValue);
+        //setOutputValue(cellValue);
         qDebug() << "Cell value: " << cellValue;
 
-        QRegularExpression regex("^OUT [01]{4}$");
-
-        if (cellValue == "STOP!") {
-            ramTimer.stop();
+        if (stopInstrRegex.match(cellValue).hasMatch()) {
+            executeStopInstruction();
         }
-        else if (regex.match(cellValue).hasMatch()) {
-            setOutputValue("Out instruction");
+        else if (outInstrRegex.match(cellValue).hasMatch()) {
+            executeOutInstruction(cellValue);
         }
     }
 
@@ -59,7 +61,6 @@ void RamModel::executeInstruction(){
     } else {
        ramTimer.stop();
     }
-
 
     ++programCounter;
 }
@@ -130,3 +131,21 @@ void RamModel::setOutputValue(const QString& outputValue) {
         emit outputValueChanged();
     }
 }
+
+void RamModel::executeStopInstruction() {
+    ramTimer.stop();
+}
+
+void RamModel::executeOutInstruction(const QString& outStr) {
+    QStringList outStrs = outStr.split(' ');
+    bool ok;
+    int ramRowIdx = outStrs[1].toInt(&ok, 2);
+
+    if (ramRowIdx >= 0 && ramRowIdx < RAM_ROWS_COUNT) {
+        QString cellValue = ramCells[ramRowIdx * RAM_COLS_COUNT + 1].value;
+        QString cellValueNoSpaces = cellValue.remove(' ');
+        int intCellValue = cellValueNoSpaces.toInt(&ok, 2);
+        setOutputValue(QString::number(intCellValue));
+    }
+}
+

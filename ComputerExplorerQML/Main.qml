@@ -73,7 +73,8 @@ Window {
                             TextInput{
                                 anchors.centerIn: parent
                                 //text: (index % 2) === 0 ? "0000" : "0000 0000"
-                                text: index
+                                //text: index
+                                text: value
                                 font.pixelSize: parent.height - 10
                                 onTextChanged:{
                                     value = text

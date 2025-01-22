@@ -4,10 +4,13 @@
 #include <QTimer>
 #include <QObject>
 #include <QAbstractListModel>
+#include <QRegularExpression>
 
 static const int RAM_ROWS_COUNT = 16;
 static const int RAM_COLS_COUNT = 2;
 
+static const QRegularExpression stopInstrRegex("^STOP!$");
+static const QRegularExpression outInstrRegex("^OUT [01]{4}$");
 
 struct RamCell {
     bool active;
@@ -37,6 +40,9 @@ public:
 
     QString outputValue() const;
     void setOutputValue(const QString& outputValue);
+
+    void executeStopInstruction();
+    void executeOutInstruction(const QString& outStr);
 
 signals:
     void outputValueChanged();
