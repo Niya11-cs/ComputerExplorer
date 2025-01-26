@@ -39,6 +39,9 @@ void RamModel::executeInstruction(){
         else if (outInstructionRegex.match(cellValue).hasMatch()) {
             executeOutInstruction(cellValue);
         }
+        else if(jumpInstructionRegex.match(cellValue).hasMatch()){
+            executeJumpInstruction(cellValue);
+        }
     }
 
     if (currentRow < RAM_ROWS_COUNT) {
@@ -70,11 +73,20 @@ void RamModel::executeStopInstruction(){
     ramTimer.stop();
 }
 
+void RamModel::executeJumpInstruction(QString cellValue){
+    QStringList strArr = cellValue.split(' ');
+    bool ok;
+    currentRow = strArr[1].toInt(&ok, 2);
+}
+
 void RamModel::executeOutInstruction(QString cellValue){
     QStringList strArr = cellValue.split(' ');
     bool ok;
     int rowIdx = strArr[1].toInt(&ok, 2);
-    setOutputValue(ramCells[rowIdx*RAM_COLS_COUNT+1].value);
+    QString cellBinaryValue = ramCells[rowIdx*RAM_COLS_COUNT+1].value;
+    cellBinaryValue.remove(' ');
+    int cellIntValue = cellBinaryValue.toInt(&ok, 2);
+    setOutputValue(QString::number(cellIntValue));
 }
 
 int RamModel::rowCount(const QModelIndex &parent) const {

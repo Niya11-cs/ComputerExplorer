@@ -10,6 +10,7 @@ static const int RAM_ROWS_COUNT = 16;
 static const int RAM_COLS_COUNT = 2;
 
 static const QRegularExpression outInstructionRegex("^OUT [01]{4}$");
+static const QRegularExpression jumpInstructionRegex("^JUMP [01]{4}$");
 static const QRegularExpression stopInstructionRegex("^STOP!$");
 
 struct RamCell {
@@ -48,6 +49,7 @@ public slots:
     void startProgram();
     void executeInstruction();
     void executeStopInstruction();
+    void executeJumpInstruction(QString cellValue);
     void executeOutInstruction(QString cellValue);
 private:
     QVector<RamCell> ramCells;
