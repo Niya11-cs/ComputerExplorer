@@ -55,6 +55,7 @@ private:
     QVector<RamCell> ramCells;
     QTimer ramTimer;
     int programCounter;
+    int previousRow;
     int currentRow;
     QString m_outputValue;
 };

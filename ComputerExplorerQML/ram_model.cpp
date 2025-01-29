@@ -17,6 +17,7 @@ RamModel::RamModel(QObject *parent):QAbstractListModel(parent) {
 
     m_outputValue = "255";
     programCounter = 0;
+    previousRow = -1;
     currentRow = 0;
     connect(&ramTimer, &QTimer::timeout, this, &RamModel::executeInstruction);
 }
@@ -29,8 +30,8 @@ void RamModel::startProgram(){
 void RamModel::executeInstruction(){
     qDebug() << "Program counter: " << programCounter;
     if(currentRow >= 0 && currentRow < RAM_ROWS_COUNT){
+        previousRow = currentRow;
         const QString cellValue = ramCells[currentRow*2+1].value;
-        setOutputValue(cellValue);
         qDebug() << "Cell value: " << cellValue;
 
         if (stopInstructionRegex.match(cellValue).hasMatch()) {
@@ -46,9 +47,8 @@ void RamModel::executeInstruction(){
 
     if (currentRow < RAM_ROWS_COUNT) {
         if (currentRow > 0) {
-            const int previosRow = currentRow - 1;
             for (int col = 0; col < RAM_COLS_COUNT; ++col) {
-                int index = previosRow * RAM_COLS_COUNT + col;
+                int index = previousRow * RAM_COLS_COUNT + col;
 
                 setData(this->index(index), false, ActiveRole);
                 setData(this->index(index), true, PassiveRole);
@@ -60,7 +60,6 @@ void RamModel::executeInstruction(){
 
             setData(this->index(index), true, ActiveRole);
         }
-        ++currentRow;
     } else {
        ramTimer.stop();
     }
@@ -87,6 +86,7 @@ void RamModel::executeOutInstruction(QString cellValue){
     cellBinaryValue.remove(' ');
     int cellIntValue = cellBinaryValue.toInt(&ok, 2);
     setOutputValue(QString::number(cellIntValue));
+    ++currentRow;
 }
 
 int RamModel::rowCount(const QModelIndex &parent) const {
