@@ -15,7 +15,7 @@ RamModel::RamModel(QObject *parent):QAbstractListModel(parent) {
         }
     }
 
-    m_outputValue = "255";
+    m_outputValue = "";
     programCounter = 0;
     previousRow = -1;
     currentRow = 0;
