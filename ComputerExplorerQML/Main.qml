@@ -213,7 +213,7 @@ Window {
                     Layout.fillWidth: true
                     Layout.preferredHeight: parent.height / 3
 
-                    GridLayout{
+                    /*GridLayout{
                         id: registersLayout
                         rows: 3
                         columns: 2
@@ -242,6 +242,115 @@ Window {
                                 }
                             }
                         }
+                    }*/
+                    RowLayout {
+                        id: registersLayout
+                        spacing: 0
+                        anchors.centerIn: parent
+                        ColumnLayout{
+                            id: registersNamesLayouts
+                            spacing: 0
+                            Rectangle{
+                                id: registerANameHolder
+                                color: "transparent"
+                                Layout.preferredWidth: 60
+                                Layout.preferredHeight: 30
+
+                                Text{
+                                    id: registerAName
+                                    color: "green"
+                                    anchors.centerIn: parent
+                                    text: "Reg A"
+                                    font.pixelSize: parent.height - 10
+                                }
+                            }
+
+                            Rectangle{
+                                id: registerBNameHolder
+                                color: "transparent"
+                                Layout.preferredWidth: 60
+                                Layout.preferredHeight: 30
+
+                                Text{
+                                    id: registerBName
+                                    color: "green"
+                                    anchors.centerIn: parent
+                                    text: "Reg B"
+                                    font.pixelSize: parent.height - 10
+                                }
+                            }
+
+                            Rectangle{
+                                id: registerCNameHolder
+                                color: "transparent"
+                                Layout.preferredWidth: 60
+                                Layout.preferredHeight: 30
+
+                                Text{
+                                    id: registerCName
+                                    color: "green"
+                                    anchors.centerIn: parent
+                                    text: "Reg C"
+                                    font.pixelSize: parent.height - 10
+                                }
+                            }
+                        }
+
+                        ColumnLayout {
+                            id: registersValuesLayout
+                            spacing: 0
+                            Rectangle{
+                                id: registerAValueHolder
+                                border.color: "green"
+                                border.width: 2
+                                color: "white"
+                                Layout.preferredWidth: 140
+                                Layout.preferredHeight: 30
+
+                                Text{
+                                    id: registerAValue
+                                    color: "green"
+                                    anchors.centerIn: parent
+                                    text: ramModel.regA
+                                    font.pixelSize: parent.height - 10
+                                }
+                            }
+
+                            Rectangle{
+                                id: registerBValueHolder
+                                border.color: "green"
+                                border.width: 2
+                                color: "white"
+                                Layout.preferredWidth: 140
+                                Layout.preferredHeight: 30
+
+                                Text{
+                                    id: registerBValue
+                                    color: "green"
+                                    anchors.centerIn: parent
+                                    text: ramModel.regB
+                                    font.pixelSize: parent.height - 10
+                                }
+                            }
+
+                            Rectangle{
+                                id: registerCValueHolder
+                                border.color: "green"
+                                border.width: 2
+                                color: "white"
+                                Layout.preferredWidth: 140
+                                Layout.preferredHeight: 30
+
+                                Text{
+                                    id: registerCValue
+                                    color: "green"
+                                    anchors.centerIn: parent
+                                    text: ramModel.regC
+                                    font.pixelSize: parent.height - 10
+                                }
+                            }
+                        }
+
                     }
                 }
             }

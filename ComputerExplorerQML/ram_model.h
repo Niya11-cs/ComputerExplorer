@@ -12,6 +12,7 @@ static const int RAM_COLS_COUNT = 2;
 static const QRegularExpression outInstructionRegex("^OUT [01]{4}$");
 static const QRegularExpression jumpInstructionRegex("^JUMP [01]{4}$");
 static const QRegularExpression stopInstructionRegex("^STOP!$");
+static const QRegularExpression loadInstructionRegex("^LOAD [01]{4} [ABC]{1}$");
 
 struct RamCell {
     bool active;
@@ -25,6 +26,10 @@ class RamModel : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY(QString outputValue READ outputValue WRITE setOutputValue NOTIFY outputValueChanged)
+    Q_PROPERTY(QString regAValue READ regAValue WRITE setRegAValue NOTIFY regAValueChanged)
+    Q_PROPERTY(QString regBValue READ regBValue WRITE setRegBValue NOTIFY regBValueChanged)
+    Q_PROPERTY(QString regCValue READ regCValue WRITE setRegCValue NOTIFY regCValueChanged)
+
 public:
     RamModel(QObject *parent = nullptr);
 
@@ -40,17 +45,29 @@ public:
     QHash<int, QByteArray> roleNames() const override;
 
     QString outputValue() const;
+    QString regAValue() const;
+    QString regBValue() const;
+    QString regCValue() const;
+
     void setOutputValue(const QString& outputValue);
+    void setRegAValue(const QString& regAValue);
+    void setRegBValue(const QString& regBValue);
+    void setRegCValue(const QString& regCValue);
 
 signals:
     void outputValueChanged();
+    void regAValueChanged();
+    void regBValueChanged();
+    void regCValueChanged();
 
 public slots:
     void startProgram();
     void executeInstruction();
     void executeStopInstruction();
+    void executeLoadInstruction(QString cellValue);
     void executeJumpInstruction(QString cellValue);
     void executeOutInstruction(QString cellValue);
+
 private:
     QVector<RamCell> ramCells;
     QTimer ramTimer;
@@ -58,6 +75,9 @@ private:
     int previousRow;
     int currentRow;
     QString m_outputValue;
+    QString m_regAValue;
+    QString m_regBValue;
+    QString m_regCValue;
 };
 
 #endif // RAM_MODEL_H

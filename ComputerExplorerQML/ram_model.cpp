@@ -43,6 +43,9 @@ void RamModel::executeInstruction(){
         else if(jumpInstructionRegex.match(cellValue).hasMatch()){
             executeJumpInstruction(cellValue);
         }
+        else if(loadInstructionRegex.match(cellValue).hasMatch()){
+            executeLoadInstruction(cellValue);
+        }
     }
 
     if (currentRow < RAM_ROWS_COUNT) {
@@ -86,6 +89,25 @@ void RamModel::executeOutInstruction(QString cellValue){
     cellBinaryValue.remove(' ');
     int cellIntValue = cellBinaryValue.toInt(&ok, 2);
     setOutputValue(QString::number(cellIntValue));
+    ++currentRow;
+}
+
+void RamModel::executeLoadInstruction(QString cellValue){
+    QStringList strArr = cellValue.split(' ');
+    bool ok;
+    int rowIdx = strArr[1].toInt(&ok, 2);
+    QString cellBinaryValue = ramCells[rowIdx*RAM_COLS_COUNT+1].value;
+    QString targetRegister = strArr[2];
+
+    if (targetRegister == "A"){
+        setRegAValue(cellBinaryValue);
+    }
+    else if(targetRegister == "B"){
+        setRegBValue(cellBinaryValue);
+    }
+    else if(targetRegister == "c"){
+        setRegCValue(cellBinaryValue);
+    }
     ++currentRow;
 }
 
@@ -149,9 +171,42 @@ QString RamModel::outputValue() const {
     return m_outputValue;
 }
 
+QString RamModel::regAValue() const {
+    return m_regAValue;
+}
+
+QString RamModel::regBValue() const {
+    return m_regBValue;
+}
+
+QString RamModel::regCValue() const {
+    return m_regCValue;
+}
+
 void RamModel::setOutputValue(const QString& outputValue) {
     if (m_outputValue != outputValue) {
         m_outputValue = outputValue;
         emit outputValueChanged();
+    }
+}
+
+void RamModel::setRegAValue(const QString& regAValue) {
+    if (m_regAValue != regAValue) {
+        m_regAValue = regAValue;
+        emit regAValueChanged();
+    }
+}
+
+void RamModel::setRegBValue(const QString& regBValue) {
+    if (m_regBValue != regBValue) {
+        m_regBValue = regBValue;
+        emit regBValueChanged();
+    }
+}
+
+void RamModel::setRegCValue(const QString& regCValue) {
+    if (m_regCValue != regCValue) {
+        m_regCValue = regCValue;
+        emit regCValueChanged();
     }
 }
