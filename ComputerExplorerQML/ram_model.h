@@ -10,9 +10,11 @@ static const int RAM_ROWS_COUNT = 16;
 static const int RAM_COLS_COUNT = 2;
 
 static const QRegularExpression outInstructionRegex("^OUT [01]{4}$");
+static const QRegularExpression outRegInstructionRegex("^OUT [ABC]{1}$");
 static const QRegularExpression jumpInstructionRegex("^JUMP [01]{4}$");
 static const QRegularExpression stopInstructionRegex("^STOP!$");
 static const QRegularExpression loadInstructionRegex("^LOAD [01]{4} [ABC]{1}$");
+static const QRegularExpression addInstructionRegex("^ADD [ABC]{1} [ABC]{1} [ABC]{1}$");
 
 struct RamCell {
     bool active;
@@ -67,6 +69,8 @@ public slots:
     void executeLoadInstruction(QString cellValue);
     void executeJumpInstruction(QString cellValue);
     void executeOutInstruction(QString cellValue);
+    void executeOutRegInstruction(QString cellValue);
+    void executeAddInstruction(QString cellValue);
 
 private:
     QVector<RamCell> ramCells;
@@ -78,6 +82,7 @@ private:
     QString m_regAValue;
     QString m_regBValue;
     QString m_regCValue;
+    QString regsArr[3];
 };
 
 #endif // RAM_MODEL_H

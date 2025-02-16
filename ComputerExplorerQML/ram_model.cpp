@@ -16,6 +16,9 @@ RamModel::RamModel(QObject *parent):QAbstractListModel(parent) {
     }
 
     m_outputValue = "";
+    m_regAValue = "-";
+    m_regBValue = "-";
+    m_regCValue = "-";
     programCounter = 0;
     previousRow = -1;
     currentRow = 0;
@@ -45,6 +48,12 @@ void RamModel::executeInstruction(){
         }
         else if(loadInstructionRegex.match(cellValue).hasMatch()){
             executeLoadInstruction(cellValue);
+        }
+        else if (outRegInstructionRegex.match(cellValue).hasMatch()) {
+            executeOutRegInstruction(cellValue);
+        }
+        else if (addInstructionRegex.match(cellValue).hasMatch()) {
+            executeAddInstruction(cellValue);
         }
     }
 
@@ -92,7 +101,37 @@ void RamModel::executeOutInstruction(QString cellValue){
     ++currentRow;
 }
 
-void RamModel::executeLoadInstruction(QString cellValue){
+void RamModel::executeOutRegInstruction(QString cellValue) {
+    QStringList strArr = cellValue.split(' ');
+    QString targetRegister = strArr[1];
+    bool ok;
+    if (targetRegister == "A") {
+        QString regValue = m_regAValue;
+        regValue.remove(' ');
+        int regIntValue = regValue.toInt(&ok, 2);
+        setOutputValue(QString::number(regIntValue));
+    }
+    else if (targetRegister == "B") {
+        QString regValue = m_regBValue;
+        regValue.remove(' ');
+        int regIntValue = regValue.toInt(&ok, 2);
+        setOutputValue(QString::number(regIntValue));
+    }
+    else if (targetRegister == "C") {
+        QString regValue = m_regCValue;
+        regValue.remove(' ');
+        int regIntValue = regValue.toInt(&ok, 2);
+        setOutputValue(QString::number(regIntValue));
+    }
+    ++currentRow;
+}
+
+void RamModel::executeAddInstruction(QString cellValue) {
+    QStringList strArr = cellValue.split(' ');
+    //QString firstNumber =
+}
+
+void RamModel::executeLoadInstruction(QString cellValue) {
     QStringList strArr = cellValue.split(' ');
     bool ok;
     int rowIdx = strArr[1].toInt(&ok, 2);
@@ -105,7 +144,7 @@ void RamModel::executeLoadInstruction(QString cellValue){
     else if(targetRegister == "B"){
         setRegBValue(cellBinaryValue);
     }
-    else if(targetRegister == "c"){
+    else if(targetRegister == "C"){
         setRegCValue(cellBinaryValue);
     }
     ++currentRow;
@@ -172,15 +211,15 @@ QString RamModel::outputValue() const {
 }
 
 QString RamModel::regAValue() const {
-    return m_regAValue;
+    return regsArr[0];
 }
 
 QString RamModel::regBValue() const {
-    return m_regBValue;
+    return regsArr[1];
 }
 
 QString RamModel::regCValue() const {
-    return m_regCValue;
+    return regsArr[2];
 }
 
 void RamModel::setOutputValue(const QString& outputValue) {
@@ -191,22 +230,22 @@ void RamModel::setOutputValue(const QString& outputValue) {
 }
 
 void RamModel::setRegAValue(const QString& regAValue) {
-    if (m_regAValue != regAValue) {
-        m_regAValue = regAValue;
+    if (regsArr[0] != regAValue) {
+        regsArr[0] = regAValue;
         emit regAValueChanged();
     }
 }
 
 void RamModel::setRegBValue(const QString& regBValue) {
-    if (m_regBValue != regBValue) {
-        m_regBValue = regBValue;
+    if (regsArr[1] != regBValue) {
+        regsArr[1] = regBValue;
         emit regBValueChanged();
     }
 }
 
 void RamModel::setRegCValue(const QString& regCValue) {
-    if (m_regCValue != regCValue) {
-        m_regCValue = regCValue;
+    if (regsArr[2] != regCValue) {
+        regsArr[2] = regCValue;
         emit regCValueChanged();
     }
 }

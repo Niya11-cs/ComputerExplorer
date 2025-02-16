@@ -213,43 +213,14 @@ Window {
                     Layout.fillWidth: true
                     Layout.preferredHeight: parent.height / 3
 
-                    /*GridLayout{
-                        id: registersLayout
-                        rows: 3
-                        columns: 2
-                        rowSpacing: -2
-                        columnSpacing: -2
-                        anchors.centerIn: parent
-
-                        Repeater{
-                            id: registersRepeater
-                            model: 6
-
-                            Rectangle{
-                                id: registerCell
-                                border.color: "green"
-                                border.width: (index % 2) === 0 ? 0 : 2
-                                color: (index % 2) === 0 ? "transparent" : "white"
-                                width: (index % 2) === 0 ? 60 : 140
-                                height: 30
-
-                                Text{
-                                    id: registerText
-                                    color: (index % 2) === 0 ? "green" : "black"
-                                    anchors.centerIn: parent
-                                    text: (index % 2) === 0 ? "Reg A" : "0000 1111"
-                                    font.pixelSize: parent.height - 10
-                                }
-                            }
-                        }
-                    }*/
                     RowLayout {
                         id: registersLayout
                         spacing: 0
                         anchors.centerIn: parent
+
                         ColumnLayout{
                             id: registersNamesLayouts
-                            spacing: 0
+                            spacing: -2
                             Rectangle{
                                 id: registerANameHolder
                                 color: "transparent"
@@ -298,7 +269,7 @@ Window {
 
                         ColumnLayout {
                             id: registersValuesLayout
-                            spacing: 0
+                            spacing: -2
                             Rectangle{
                                 id: registerAValueHolder
                                 border.color: "green"
@@ -309,9 +280,9 @@ Window {
 
                                 Text{
                                     id: registerAValue
-                                    color: "green"
+                                    color: "black"
                                     anchors.centerIn: parent
-                                    text: ramModel.regA
+                                    text: ramModel.regAValue
                                     font.pixelSize: parent.height - 10
                                 }
                             }
@@ -326,9 +297,9 @@ Window {
 
                                 Text{
                                     id: registerBValue
-                                    color: "green"
+                                    color: "black"
                                     anchors.centerIn: parent
-                                    text: ramModel.regB
+                                    text: ramModel.regBValue
                                     font.pixelSize: parent.height - 10
                                 }
                             }
@@ -343,9 +314,9 @@ Window {
 
                                 Text{
                                     id: registerCValue
-                                    color: "green"
+                                    color: "black"
                                     anchors.centerIn: parent
-                                    text: ramModel.regC
+                                    text: ramModel.regCValue
                                     font.pixelSize: parent.height - 10
                                 }
                             }
