@@ -56,6 +56,9 @@ public:
     void setRegBValue(const QString& regBValue);
     void setRegCValue(const QString& regCValue);
 
+    int convertStringByteToInt(QString byteString);
+    QString convertIntToStringByte(int intForByte);
+
 signals:
     void outputValueChanged();
     void regAValueChanged();
@@ -82,7 +85,6 @@ private:
     QString m_regAValue;
     QString m_regBValue;
     QString m_regCValue;
-    QString regsArr[3];
 };
 
 #endif // RAM_MODEL_H

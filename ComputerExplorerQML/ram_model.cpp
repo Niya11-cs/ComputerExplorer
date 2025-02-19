@@ -128,7 +128,45 @@ void RamModel::executeOutRegInstruction(QString cellValue) {
 
 void RamModel::executeAddInstruction(QString cellValue) {
     QStringList strArr = cellValue.split(' ');
-    //QString firstNumber =
+    QString firstRegStr = strArr[1];
+    QString secondRegStr = strArr[2];
+    QString targetRegStr = strArr[3];
+
+    int firstRegValue = 0;
+    if (firstRegStr == "A") {
+        firstRegValue = convertStringByteToInt(m_regAValue);
+    }
+    else if (firstRegStr == "B") {
+        firstRegValue = convertStringByteToInt(m_regBValue);
+    }
+    else if (firstRegStr == "C") {
+        firstRegValue = convertStringByteToInt(m_regCValue);
+    }
+
+    int secondRegValue = 0;
+    if (secondRegStr == "A") {
+        secondRegValue = convertStringByteToInt(m_regAValue);
+    }
+    else if (secondRegStr == "B") {
+        secondRegValue = convertStringByteToInt(m_regBValue);
+    }
+    else if (secondRegStr == "C") {
+        secondRegValue = convertStringByteToInt(m_regCValue);
+    }
+
+    int sum = firstRegValue + secondRegValue;
+    QString sumByte = convertIntToStringByte(sum);
+    if (targetRegStr == "A") {
+        setRegAValue(sumByte);
+    }
+    else if (targetRegStr == "B") {
+        setRegBValue(sumByte);
+    }
+    else if (targetRegStr == "C") {
+        setRegCValue(sumByte);
+    }
+
+    ++currentRow;
 }
 
 void RamModel::executeLoadInstruction(QString cellValue) {
@@ -211,15 +249,15 @@ QString RamModel::outputValue() const {
 }
 
 QString RamModel::regAValue() const {
-    return regsArr[0];
+    return m_regAValue;
 }
 
 QString RamModel::regBValue() const {
-    return regsArr[1];
+    return m_regBValue;
 }
 
 QString RamModel::regCValue() const {
-    return regsArr[2];
+    return m_regCValue;
 }
 
 void RamModel::setOutputValue(const QString& outputValue) {
@@ -230,22 +268,37 @@ void RamModel::setOutputValue(const QString& outputValue) {
 }
 
 void RamModel::setRegAValue(const QString& regAValue) {
-    if (regsArr[0] != regAValue) {
-        regsArr[0] = regAValue;
+    if (m_regAValue != regAValue) {
+        m_regAValue = regAValue;
         emit regAValueChanged();
     }
 }
 
 void RamModel::setRegBValue(const QString& regBValue) {
-    if (regsArr[1] != regBValue) {
-        regsArr[1] = regBValue;
+    if (m_regBValue != regBValue) {
+        m_regBValue = regBValue;
         emit regBValueChanged();
     }
 }
 
 void RamModel::setRegCValue(const QString& regCValue) {
-    if (regsArr[2] != regCValue) {
-        regsArr[2] = regCValue;
+    if (m_regCValue != regCValue) {
+        m_regCValue = regCValue;
         emit regCValueChanged();
     }
+}
+
+int RamModel::convertStringByteToInt(QString byteString) {
+    //TODO: CHECK THE VALUE OF BYTE STRING
+    byteString.remove(' ');
+    bool ok;
+    int intByte = byteString.toInt(&ok, 2);
+
+    return intByte;
+}
+
+QString RamModel::convertIntToStringByte(int intForByte) {
+    //TODO: REFIND THE FINAL BYTE
+    QString stringByte = QString::number(intForByte, 2);
+    return stringByte;
 }
