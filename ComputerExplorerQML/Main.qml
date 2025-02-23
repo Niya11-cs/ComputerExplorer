@@ -84,7 +84,7 @@ Window {
                                 border.color: "green"
                                 border.width: 2
                                 color: active ? "pink" : (passive ? "grey" : "white")
-                                width: (index % 2) === 0 ? 60 : 140
+                                width: (index % 2) === 0 ? 60 : 165
                                 height: 30
 
                                 TextInput{
@@ -176,31 +176,100 @@ Window {
                             }
                         }
 
-                        GridLayout{
-                            id: cpuFlagsLayout
-                            rows: 3
-                            columns: 2
-                            rowSpacing: -2
-                            columnSpacing: -2
+                        Rectangle {
+                            id: flagsHolder
+                            color: "#5fff5e"
+                            Layout.fillWidth: true
+                            Layout.preferredHeight: parent.height / 3
 
+                            RowLayout {
+                                id: flagsLayout
+                                spacing: -2
+                                anchors.centerIn: parent
 
-                            Repeater{
-                                id: cpuFlagsRepeater
-                                model: 6
+                                ColumnLayout {
+                                    id: flagsValuesLayout
+                                    spacing: -2
+                                    Rectangle{
+                                        id: flagEqualValueHolder
+                                        border.color: "green"
+                                        border.width: 2
+                                        color: ramModel.flagEqualValue ? "red" : "white"
+                                        Layout.preferredWidth: 30
+                                        Layout.preferredHeight: 30
+                                    }
 
-                                Rectangle{
-                                    id: cpuFlagRect
-                                    border.color: "green"
-                                    border.width: 2
-                                    color: (index % 2) === 0 ? "red" : "white"
-                                    width: (index % 2) === 0 ? 30 : 170
-                                    height: 30
+                                    Rectangle{
+                                        id: flagLessThanValueHolder
+                                        border.color: "green"
+                                        border.width: 2
+                                        color: ramModel.flagLessThanValue ? "green" : "white"
+                                        Layout.preferredWidth: 30
+                                        Layout.preferredHeight: 30
+                                    }
 
-                                    Text {
-                                        id: cpuFlagText
-                                        anchors.centerIn: parent
-                                        text: (index % 2) === 0 ? "" : "GT Greater Than"
-                                        font.pixelSize: parent.height - 10
+                                    Rectangle{
+                                        id: flagGreaterThanValueHolder
+                                        border.color: "green"
+                                        border.width: 2
+                                        color: ramModel.flagGreaterThanValue ? "blue" : "white"
+                                        Layout.preferredWidth: 30
+                                        Layout.preferredHeight: 30
+                                    }
+                                }
+
+                                ColumnLayout{
+                                    id: flagsNamesLayouts
+                                    spacing: -2
+                                    Rectangle{
+                                        id: flagEqualNameHolder
+                                        border.color: "green"
+                                        color: "white"
+                                        border.width: 2
+                                        Layout.preferredWidth: 170
+                                        Layout.preferredHeight: 30
+
+                                        Text{
+                                            id: flagEqualName
+                                            color: "green"
+                                            anchors.centerIn: parent
+                                            text: "EQ Equal"
+                                            font.pixelSize: parent.height - 10
+                                        }
+                                    }
+
+                                    Rectangle{
+                                        id: flagLessThanNameHolder
+                                        border.color: "green"
+                                        color: "white"
+                                        border.width: 2
+                                        Layout.preferredWidth: 170
+                                        Layout.preferredHeight: 30
+
+                                        Text{
+                                            id: flagLessThanName
+                                            color: "green"
+                                            anchors.centerIn: parent
+                                            text: "LT Less Than"
+                                            font.pixelSize: parent.height - 10
+                                        }
+                                    }
+
+                                    Rectangle{
+                                        id: flagGreaterThanNameHolder
+                                        border.color: "green"
+                                        color: "white"
+                                        border.width: 2
+                                        Layout.preferredWidth: 170
+                                        Layout.preferredHeight: 30
+
+                                        Text{
+                                            id: flagGreaterThanName
+                                            color: "green"
+                                            anchors.centerIn: parent
+                                            text: "GT Greater Than"
+                                            font.pixelSize: parent.height - 10
+                                        }
                                     }
                                 }
                             }

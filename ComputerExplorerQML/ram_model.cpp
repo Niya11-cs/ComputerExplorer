@@ -22,6 +22,9 @@ RamModel::RamModel(QObject *parent):QAbstractListModel(parent) {
     programCounter = 0;
     previousRow = -1;
     currentRow = 0;
+    m_flagEqualValue = false;
+    m_flagLessThanValue = false;
+    m_flagGreaterThanValue = false;
     connect(&ramTimer, &QTimer::timeout, this, &RamModel::executeInstruction);
 }
 
@@ -54,6 +57,12 @@ void RamModel::executeInstruction(){
         }
         else if (addInstructionRegex.match(cellValue).hasMatch()) {
             executeAddInstruction(cellValue);
+        }
+        else if (cmpInstructionRegex.match(cellValue).hasMatch()) {
+            executeCmpInstruction(cellValue);
+        }
+        else if (jumpIfInstructionRegex.match(cellValue).hasMatch()) {
+            executeJumpIfInstruction(cellValue);
         }
     }
 
@@ -169,6 +178,66 @@ void RamModel::executeAddInstruction(QString cellValue) {
     ++currentRow;
 }
 
+void RamModel::executeCmpInstruction(QString cellValue) {
+    QStringList strArr = cellValue.split(' ');
+    QString firstRegStr = strArr[1];
+    QString secondRegStr = strArr[2];
+
+    setFlagEqualValue(false);
+    setFlagLessThanValue(false);
+    setFlagGreaterThanValue(false);
+
+    int firstRegValue = 0;
+    if (firstRegStr == "A") {
+        firstRegValue = convertStringByteToInt(m_regAValue);
+    }
+    else if (firstRegStr == "B") {
+        firstRegValue = convertStringByteToInt(m_regBValue);
+    }
+    else if (firstRegStr == "C") {
+        firstRegValue = convertStringByteToInt(m_regCValue);
+    }
+
+    int secondRegValue = 0;
+    if (secondRegStr == "A") {
+        secondRegValue = convertStringByteToInt(m_regAValue);
+    }
+    else if (secondRegStr == "B") {
+        secondRegValue = convertStringByteToInt(m_regBValue);
+    }
+    else if (secondRegStr == "C") {
+        secondRegValue = convertStringByteToInt(m_regCValue);
+    }
+
+    if (firstRegValue == secondRegValue) {
+        setFlagEqualValue(true);
+    }
+    else if (firstRegValue < secondRegValue) {
+        setFlagLessThanValue(true);
+    }
+    else if (firstRegValue > secondRegValue) {
+        setFlagGreaterThanValue(true);
+    }
+    ++currentRow;
+}
+
+void RamModel::executeJumpIfInstruction(QString cellValue) {
+    QStringList strArr = cellValue.split(' ');
+    bool ok;
+    if (strArr[2] == "EQ" && m_flagEqualValue) {
+      currentRow = strArr[3].toInt(&ok, 2);
+    }
+    else if (strArr[2] == "LT" && m_flagLessThanValue) {
+        currentRow = strArr[3].toInt(&ok, 2);
+    }
+    else if (strArr[2] == "GT" && m_flagGreaterThanValue) {
+        currentRow = strArr[3].toInt(&ok, 2);
+    }
+    else {
+        ++currentRow;
+    }
+}
+
 void RamModel::executeLoadInstruction(QString cellValue) {
     QStringList strArr = cellValue.split(' ');
     bool ok;
@@ -260,6 +329,39 @@ QString RamModel::regCValue() const {
     return m_regCValue;
 }
 
+bool RamModel::flagEqualValue() const {
+    return m_flagEqualValue;
+}
+
+bool RamModel::flagLessThanValue() const {
+    return m_flagLessThanValue;
+}
+
+bool RamModel::flagGreaterThanValue() const{
+    return m_flagGreaterThanValue;
+}
+
+void RamModel::setFlagEqualValue(bool flagEqualValue) {
+    if (m_flagEqualValue != flagEqualValue) {
+        m_flagEqualValue = flagEqualValue;
+        emit flagEqualValueChanged();
+    }
+}
+
+void RamModel::setFlagLessThanValue(bool flagLessThanValue) {
+    if (m_flagLessThanValue != flagLessThanValue) {
+        m_flagLessThanValue = flagLessThanValue;
+        emit flagLessThanValueChanged();
+    }
+}
+
+void RamModel::setFlagGreaterThanValue(bool flagGreaterThanValue) {
+    if (m_flagGreaterThanValue != flagGreaterThanValue) {
+        m_flagGreaterThanValue = flagGreaterThanValue;
+        emit flagGreaterThanValueChanged();
+    }
+}
+
 void RamModel::setOutputValue(const QString& outputValue) {
     if (m_outputValue != outputValue) {
         m_outputValue = outputValue;
@@ -298,7 +400,14 @@ int RamModel::convertStringByteToInt(QString byteString) {
 }
 
 QString RamModel::convertIntToStringByte(int intForByte) {
-    //TODO: REFIND THE FINAL BYTE
     QString stringByte = QString::number(intForByte, 2);
+    if (stringByte.size() > 8) {
+        stringByte = stringByte.right(8);
+    }
+    else if (stringByte.size() < 8) {
+        stringByte = stringByte.rightJustified(8, '0');
+    }
+
+    stringByte.insert(4, ' ');
     return stringByte;
 }
