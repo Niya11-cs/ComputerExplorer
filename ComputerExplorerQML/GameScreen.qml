@@ -160,7 +160,7 @@ Item {
                                 Text{
                                     id: screenOutputText
                                     anchors.centerIn: parent;
-                                    text: ramModel.outputValue
+                                    text: ramModel ? ramModel.outputValue : ""
                                     color: "white"
                                     font.pixelSize: 64
                                 }
@@ -214,7 +214,7 @@ Item {
                                         id: flagEqualValueHolder
                                         border.color: "green"
                                         border.width: 2
-                                        color: ramModel.flagEqualValue ? "red" : "white"
+                                        color: (ramModel && ramModel.flagEqualValue) ? "red" : "white"
                                         Layout.preferredWidth: 30
                                         Layout.preferredHeight: 30
                                     }
@@ -223,7 +223,7 @@ Item {
                                         id: flagLessThanValueHolder
                                         border.color: "green"
                                         border.width: 2
-                                        color: ramModel.flagLessThanValue ? "green" : "white"
+                                        color: (ramModel && ramModel.flagLessThanValue) ? "green" : "white"
                                         Layout.preferredWidth: 30
                                         Layout.preferredHeight: 30
                                     }
@@ -232,7 +232,7 @@ Item {
                                         id: flagGreaterThanValueHolder
                                         border.color: "green"
                                         border.width: 2
-                                        color: ramModel.flagGreaterThanValue ? "blue" : "white"
+                                        color: (ramModel && ramModel.flagGreaterThanValue) ? "blue" : "white"
                                         Layout.preferredWidth: 30
                                         Layout.preferredHeight: 30
                                     }
