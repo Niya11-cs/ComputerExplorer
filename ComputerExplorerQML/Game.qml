@@ -14,6 +14,37 @@ Item {
         z: -1
     }
 
+    Image {
+        id: myImage
+        source: "qrc:/ComputerExplorerQML/images/arrow.png"
+        width: 50
+        height: 50
+
+        anchors.leftMargin: 20
+        anchors.topMargin: 20
+        anchors.left: parent.left
+        anchors.top: parent.top
+
+        MouseArea {
+        anchors.fill: parent
+        cursorShape: Qt.PointingHandCursor
+
+        onClicked: {
+        stackView.push("HomeScreen.qml")
+            }
+        }
+    }
+
+    /*Image {
+        id: arrowBack
+        source: "qrc:/ComputerExplorerQML/images/arrow.png"
+        fillMode: Image.PreserveAspectCrop
+        z: -1
+        onClicked: {
+            stackView.push("HomeScreen.qml")
+        }
+    }*/
+
     RowLayout {
         id: computerLayout
         anchors.fill: parent
@@ -30,7 +61,7 @@ Item {
                 color: "transparent"
                 Layout.fillWidth: true
                 Layout.preferredHeight: root.height / 8
-                Rectangle{
+                /*Rectangle{
                     id: startButton
                     color: "red"
                     width: 40
@@ -44,7 +75,32 @@ Item {
                             ramModel.startProgram();
                         }
                     }
+                }*/
+
+                Item {
+                    width: 400
+                    height: 300
+
+                    Image {
+                        id: startButton
+                        source: "qrc:/ComputerExplorerQML/images/play_button.png"
+                        width: 40
+                        height: 40
+                        anchors.centerIn: parent
+
+                        MouseArea {
+                            id: startButtonMouseArea
+                            anchors.fill: parent
+                            cursorShape: Qt.PointingHandCursor
+
+                            onClicked: {
+                                console.log("start program");
+                                ramModel.startProgram();
+                            }
+                        }
+                    }
                 }
+
             }
 
             Rectangle{
