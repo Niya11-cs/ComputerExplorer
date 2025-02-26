@@ -25,6 +25,8 @@ qt_add_qml_module(appComputerExplorerQML
         RESOURCES images/home_screen_background.png
         RESOURCES images/first_level.png
         RESOURCES
+        RESOURCES
+        RESOURCES images/start_button.png
         RESOURCES images/arrow.png
 )
 

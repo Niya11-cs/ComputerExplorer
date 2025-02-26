@@ -17,8 +17,8 @@ Item {
     Image {
         id: myImage
         source: "qrc:/ComputerExplorerQML/images/arrow.png"
-        width: 50
-        height: 50
+        width: 100
+        height: 100
 
         anchors.leftMargin: 20
         anchors.topMargin: 20
@@ -83,10 +83,12 @@ Item {
 
                     Image {
                         id: startButton
-                        source: "qrc:/ComputerExplorerQML/images/play_button.png"
-                        width: 40
-                        height: 40
+                        source: "qrc:/ComputerExplorerQML/images/start_button.png"
+                        width: 125
+                        height: 125
                         anchors.centerIn: parent
+                        anchors.horizontalCenterOffset: 155
+                        anchors.verticalCenterOffset: -30
 
                         MouseArea {
                             id: startButtonMouseArea
@@ -145,8 +147,10 @@ Item {
                                 border.color: "green"
                                 border.width: 2
                                 color: active ? "pink" : (passive ? "grey" : "white")
-                                width: (index % 2) === 0 ? 60 : 165
-                                height: 30
+                                /*width: (index % 2) === 0 ? 60 : 160
+                                height: 30*/
+                                width: (index % 2) === 0 ? 70 : 170
+                                height: 35
 
                                 TextInput{
                                     id: ramCellTextInput
