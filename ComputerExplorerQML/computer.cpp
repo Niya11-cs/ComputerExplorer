@@ -1,8 +1,8 @@
-#include "ram_model.h"
+#include "computer.h"
 #include <iostream>
 
 
-RamModel::RamModel(QObject *parent):QAbstractListModel(parent) {
+Computer::Computer(QObject *parent):QAbstractListModel(parent) {
 
     ramCells.resize(RAM_ROWS_COUNT * RAM_COLS_COUNT);
     for (int rowIdx = 0; rowIdx < RAM_ROWS_COUNT; ++rowIdx) {
@@ -25,15 +25,15 @@ RamModel::RamModel(QObject *parent):QAbstractListModel(parent) {
     m_flagEqualValue = false;
     m_flagLessThanValue = false;
     m_flagGreaterThanValue = false;
-    connect(&ramTimer, &QTimer::timeout, this, &RamModel::executeInstruction);
+    connect(&ramTimer, &QTimer::timeout, this, &Computer::executeInstruction);
 }
 
-void RamModel::startProgram(){
+void Computer::startProgram(){
     std::cout << "C++ program started" << std::endl;
     ramTimer.start(1000);
 }
 
-void RamModel::executeInstruction(){
+void Computer::executeInstruction(){
     qDebug() << "Program counter: " << programCounter;
     if(currentRow >= 0 && currentRow < RAM_ROWS_COUNT){
         previousRow = currentRow;
@@ -89,17 +89,17 @@ void RamModel::executeInstruction(){
     ++programCounter;
 }
 
-void RamModel::executeStopInstruction(){
+void Computer::executeStopInstruction(){
     ramTimer.stop();
 }
 
-void RamModel::executeJumpInstruction(QString cellValue){
+void Computer::executeJumpInstruction(QString cellValue){
     QStringList strArr = cellValue.split(' ');
     bool ok;
     currentRow = strArr[1].toInt(&ok, 2);
 }
 
-void RamModel::executeOutInstruction(QString cellValue){
+void Computer::executeOutInstruction(QString cellValue){
     QStringList strArr = cellValue.split(' ');
     bool ok;
     int rowIdx = strArr[1].toInt(&ok, 2);
@@ -110,7 +110,7 @@ void RamModel::executeOutInstruction(QString cellValue){
     ++currentRow;
 }
 
-void RamModel::executeOutRegInstruction(QString cellValue) {
+void Computer::executeOutRegInstruction(QString cellValue) {
     QStringList strArr = cellValue.split(' ');
     QString targetRegister = strArr[1];
     bool ok;
@@ -135,7 +135,7 @@ void RamModel::executeOutRegInstruction(QString cellValue) {
     ++currentRow;
 }
 
-void RamModel::executeAddInstruction(QString cellValue) {
+void Computer::executeAddInstruction(QString cellValue) {
     QStringList strArr = cellValue.split(' ');
     QString firstRegStr = strArr[1];
     QString secondRegStr = strArr[2];
@@ -178,7 +178,7 @@ void RamModel::executeAddInstruction(QString cellValue) {
     ++currentRow;
 }
 
-void RamModel::executeCmpInstruction(QString cellValue) {
+void Computer::executeCmpInstruction(QString cellValue) {
     QStringList strArr = cellValue.split(' ');
     QString firstRegStr = strArr[1];
     QString secondRegStr = strArr[2];
@@ -221,7 +221,7 @@ void RamModel::executeCmpInstruction(QString cellValue) {
     ++currentRow;
 }
 
-void RamModel::executeJumpIfInstruction(QString cellValue) {
+void Computer::executeJumpIfInstruction(QString cellValue) {
     QStringList strArr = cellValue.split(' ');
     bool ok;
     if (strArr[2] == "EQ" && m_flagEqualValue) {
@@ -238,7 +238,7 @@ void RamModel::executeJumpIfInstruction(QString cellValue) {
     }
 }
 
-void RamModel::executeLoadInstruction(QString cellValue) {
+void Computer::executeLoadInstruction(QString cellValue) {
     QStringList strArr = cellValue.split(' ');
     bool ok;
     int rowIdx = strArr[1].toInt(&ok, 2);
@@ -257,12 +257,12 @@ void RamModel::executeLoadInstruction(QString cellValue) {
     ++currentRow;
 }
 
-int RamModel::rowCount(const QModelIndex &parent) const {
+int Computer::rowCount(const QModelIndex &parent) const {
     Q_UNUSED(parent);
     return ramCells.size();
 }
 
-QVariant RamModel::data(const QModelIndex &index, int role) const {
+QVariant Computer::data(const QModelIndex &index, int role) const {
     if (!index.isValid() || index.row() >= ramCells.size())
         return QVariant();
 
@@ -282,7 +282,7 @@ QVariant RamModel::data(const QModelIndex &index, int role) const {
     return QVariant();
 }
 
-bool RamModel::setData(const QModelIndex &index, const QVariant &value, int role) {
+bool Computer::setData(const QModelIndex &index, const QVariant &value, int role) {
     if (!index.isValid() || index.row() >= ramCells.size())
         return false;
 
@@ -305,7 +305,7 @@ bool RamModel::setData(const QModelIndex &index, const QVariant &value, int role
     return false;
 }
 
-QHash<int, QByteArray> RamModel::roleNames() const {
+QHash<int, QByteArray> Computer::roleNames() const {
     QHash<int, QByteArray> roles;
     roles[ActiveRole] = "active";
     roles[PassiveRole] = "passive";
@@ -313,84 +313,84 @@ QHash<int, QByteArray> RamModel::roleNames() const {
     return roles;
 }
 
-QString RamModel::outputValue() const {
+QString Computer::outputValue() const {
     return m_outputValue;
 }
 
-QString RamModel::regAValue() const {
+QString Computer::regAValue() const {
     return m_regAValue;
 }
 
-QString RamModel::regBValue() const {
+QString Computer::regBValue() const {
     return m_regBValue;
 }
 
-QString RamModel::regCValue() const {
+QString Computer::regCValue() const {
     return m_regCValue;
 }
 
-bool RamModel::flagEqualValue() const {
+bool Computer::flagEqualValue() const {
     return m_flagEqualValue;
 }
 
-bool RamModel::flagLessThanValue() const {
+bool Computer::flagLessThanValue() const {
     return m_flagLessThanValue;
 }
 
-bool RamModel::flagGreaterThanValue() const{
+bool Computer::flagGreaterThanValue() const{
     return m_flagGreaterThanValue;
 }
 
-void RamModel::setFlagEqualValue(bool flagEqualValue) {
+void Computer::setFlagEqualValue(bool flagEqualValue) {
     if (m_flagEqualValue != flagEqualValue) {
         m_flagEqualValue = flagEqualValue;
         emit flagEqualValueChanged();
     }
 }
 
-void RamModel::setFlagLessThanValue(bool flagLessThanValue) {
+void Computer::setFlagLessThanValue(bool flagLessThanValue) {
     if (m_flagLessThanValue != flagLessThanValue) {
         m_flagLessThanValue = flagLessThanValue;
         emit flagLessThanValueChanged();
     }
 }
 
-void RamModel::setFlagGreaterThanValue(bool flagGreaterThanValue) {
+void Computer::setFlagGreaterThanValue(bool flagGreaterThanValue) {
     if (m_flagGreaterThanValue != flagGreaterThanValue) {
         m_flagGreaterThanValue = flagGreaterThanValue;
         emit flagGreaterThanValueChanged();
     }
 }
 
-void RamModel::setOutputValue(const QString& outputValue) {
+void Computer::setOutputValue(const QString& outputValue) {
     if (m_outputValue != outputValue) {
         m_outputValue = outputValue;
         emit outputValueChanged();
     }
 }
 
-void RamModel::setRegAValue(const QString& regAValue) {
+void Computer::setRegAValue(const QString& regAValue) {
     if (m_regAValue != regAValue) {
         m_regAValue = regAValue;
         emit regAValueChanged();
     }
 }
 
-void RamModel::setRegBValue(const QString& regBValue) {
+void Computer::setRegBValue(const QString& regBValue) {
     if (m_regBValue != regBValue) {
         m_regBValue = regBValue;
         emit regBValueChanged();
     }
 }
 
-void RamModel::setRegCValue(const QString& regCValue) {
+void Computer::setRegCValue(const QString& regCValue) {
     if (m_regCValue != regCValue) {
         m_regCValue = regCValue;
         emit regCValueChanged();
     }
 }
 
-int RamModel::convertStringByteToInt(QString byteString) {
+int Computer::convertStringByteToInt(QString byteString) {
     //TODO: CHECK THE VALUE OF BYTE STRING
     byteString.remove(' ');
     bool ok;
@@ -399,7 +399,7 @@ int RamModel::convertStringByteToInt(QString byteString) {
     return intByte;
 }
 
-QString RamModel::convertIntToStringByte(int intForByte) {
+QString Computer::convertIntToStringByte(int intForByte) {
     QString stringByte = QString::number(intForByte, 2);
     if (stringByte.size() > 8) {
         stringByte = stringByte.right(8);

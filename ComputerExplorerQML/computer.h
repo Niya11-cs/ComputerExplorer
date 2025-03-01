@@ -1,5 +1,5 @@
-#ifndef RAM_MODEL_H
-#define RAM_MODEL_H
+#ifndef COMPUTER_H
+#define COMPUTER_H
 
 #include <QTimer>
 #include <QObject>
@@ -26,7 +26,7 @@ struct RamCell {
 
 Q_DECLARE_METATYPE(RamCell)
 
-class RamModel : public QAbstractListModel
+class Computer : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY(QString outputValue READ outputValue WRITE setOutputValue NOTIFY outputValueChanged)
@@ -38,7 +38,7 @@ class RamModel : public QAbstractListModel
     Q_PROPERTY(bool flagGreaterThanValue READ flagGreaterThanValue WRITE setFlagGreaterThanValue NOTIFY flagGreaterThanValueChanged)
 
 public:
-    RamModel(QObject *parent = nullptr);
+    Computer(QObject *parent = nullptr);
 
     enum Roles {
         ActiveRole = Qt::UserRole + 1,
@@ -106,4 +106,4 @@ private:
     bool m_flagGreaterThanValue;
 };
 
-#endif // RAM_MODEL_H
+#endif // COMPUTER_H

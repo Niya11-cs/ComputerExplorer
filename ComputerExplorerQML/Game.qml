@@ -72,7 +72,7 @@ Item {
 
                             onClicked: {
                                 console.log("start program");
-                                ramModel.startProgram();
+                                computer.startProgram();
                             }
                         }
                     }
@@ -115,7 +115,7 @@ Item {
 
                         Repeater{
                             id: ramCellsRepeater
-                            model: ramModel
+                            model: computer
 
                             Rectangle{
                                 id: ramCellRect
@@ -184,7 +184,7 @@ Item {
                             Text{
                                 id: screenOutputText
                                 anchors.centerIn: parent;
-                                text: ramModel.outputValue
+                                text: computer.outputValue
                                 color: "white"
                                 font.pixelSize: 64
                             }
@@ -199,22 +199,27 @@ Item {
 
                     ColumnLayout{
                         id: cpuFlagsHolderLayout
-                        anchors.centerIn: parent
+                        //anchors.centerIn: parent
                         spacing: 0
-
                         Rectangle{
+                            id: cpuFlagspacer
+                            color: "transparent"
+                            Layout.preferredHeight: 20
+                            Layout.fillWidth: true
+                        }
+                        /*Rectangle{
                             id: cpuTextHolder
                             color: "transparent"
                             Layout.preferredHeight: 20
                             Layout.fillWidth: true
                             Text {
                                 id: cpuFlagsText
-                                anchors.centerIn: parent
+                                //anchors.centerIn: parent
                                 text: "CPU FLAGS"
                                 color: "green"
                                 font.pixelSize: 20
                             }
-                        }
+                        }*/
 
                         Rectangle {
                             id: flagsHolder
@@ -225,7 +230,7 @@ Item {
                             RowLayout {
                                 id: flagsLayout
                                 spacing: -2
-                                anchors.centerIn: parent
+                                //anchors.centerIn: parent
 
                                 ColumnLayout {
                                     id: flagsValuesLayout
@@ -234,7 +239,7 @@ Item {
                                         id: flagEqualValueHolder
                                         border.color: "green"
                                         border.width: 2
-                                        color: ramModel.flagEqualValue ? "red" : "white"
+                                        color: computer.flagEqualValue ? "red" : "white"
                                         Layout.preferredWidth: 30
                                         Layout.preferredHeight: 30
                                     }
@@ -243,7 +248,7 @@ Item {
                                         id: flagLessThanValueHolder
                                         border.color: "green"
                                         border.width: 2
-                                        color: ramModel.flagLessThanValue ? "green" : "white"
+                                        color: computer.flagLessThanValue ? "green" : "white"
                                         Layout.preferredWidth: 30
                                         Layout.preferredHeight: 30
                                     }
@@ -252,7 +257,7 @@ Item {
                                         id: flagGreaterThanValueHolder
                                         border.color: "green"
                                         border.width: 2
-                                        color: ramModel.flagGreaterThanValue ? "blue" : "white"
+                                        color: computer.flagGreaterThanValue ? "blue" : "white"
                                         Layout.preferredWidth: 30
                                         Layout.preferredHeight: 30
                                     }
@@ -273,7 +278,7 @@ Item {
                                             id: flagEqualName
                                             color: "green"
                                             anchors.centerIn: parent
-                                            text: "EQ Equal"
+                                            text: "EQ flag"
                                             font.pixelSize: parent.height - 10
                                         }
                                     }
@@ -290,7 +295,7 @@ Item {
                                             id: flagLessThanName
                                             color: "green"
                                             anchors.centerIn: parent
-                                            text: "LT Less Than"
+                                            text: "LT flag"
                                             font.pixelSize: parent.height - 10
                                         }
                                     }
@@ -307,7 +312,7 @@ Item {
                                             id: flagGreaterThanName
                                             color: "green"
                                             anchors.centerIn: parent
-                                            text: "GT Greater Than"
+                                            text: "GT flag"
                                             font.pixelSize: parent.height - 10
                                         }
                                     }
@@ -325,7 +330,7 @@ Item {
                     RowLayout {
                         id: registersLayout
                         spacing: 0
-                        anchors.centerIn: parent
+                        //anchors.centerIn: parent
 
                         ColumnLayout{
                             id: registersNamesLayouts
@@ -391,7 +396,7 @@ Item {
                                     id: registerAValue
                                     color: "black"
                                     anchors.centerIn: parent
-                                    text: ramModel.regAValue
+                                    text: computer.regAValue
                                     font.pixelSize: parent.height - 10
                                 }
                             }
@@ -408,7 +413,7 @@ Item {
                                     id: registerBValue
                                     color: "black"
                                     anchors.centerIn: parent
-                                    text: ramModel.regBValue
+                                    text: computer.regBValue
                                     font.pixelSize: parent.height - 10
                                 }
                             }
@@ -425,7 +430,7 @@ Item {
                                     id: registerCValue
                                     color: "black"
                                     anchors.centerIn: parent
-                                    text: ramModel.regCValue
+                                    text: computer.regCValue
                                     font.pixelSize: parent.height - 10
                                 }
                             }

@@ -17,7 +17,7 @@ qt_add_qml_module(appComputerExplorerQML
     VERSION 1.0
     QML_FILES
         Main.qml
-        SOURCES ram_model.cpp ram_model.h
+        SOURCES computer.cpp computer.h
         RESOURCES
         QML_FILES HomeScreen.qml
         QML_FILES Game.qml

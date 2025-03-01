@@ -57,7 +57,6 @@ Item {
             anchors.bottomMargin: 20
         }
 
-
         Rectangle {
             Layout.preferredWidth: 200
             Layout.preferredHeight: 50

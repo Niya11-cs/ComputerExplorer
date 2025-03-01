@@ -1,6 +1,6 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-#include "ram_model.h"
+#include "computer.h"
 #include <QQmlContext>
 
 int main(int argc, char *argv[])
@@ -8,8 +8,8 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
-    RamModel ramModel;
-    engine.rootContext()->setContextProperty("ramModel", &ramModel);
+    Computer computer;
+    engine.rootContext()->setContextProperty("computer", &computer);
     const QUrl url(QStringLiteral("qrc:/ComputerExplorerQML/Main.qml"));
     QObject::connect(
         &engine,
