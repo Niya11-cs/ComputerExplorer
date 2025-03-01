@@ -18,7 +18,7 @@ qt_add_qml_module(appComputerExplorerQML
     QML_FILES
         Main.qml
         SOURCES ram_model.cpp ram_model.h
-        RESOURCES images/play_button.png
+        RESOURCES
         QML_FILES HomeScreen.qml
         QML_FILES Game.qml
         RESOURCES images/main_page.png

@@ -26,24 +26,14 @@ Item {
         anchors.top: parent.top
 
         MouseArea {
-        anchors.fill: parent
-        cursorShape: Qt.PointingHandCursor
+            anchors.fill: parent
+            cursorShape: Qt.PointingHandCursor
 
-        onClicked: {
-        stackView.push("HomeScreen.qml")
+            onClicked: {
+                stackView.push("HomeScreen.qml")
             }
         }
     }
-
-    /*Image {
-        id: arrowBack
-        source: "qrc:/ComputerExplorerQML/images/arrow.png"
-        fillMode: Image.PreserveAspectCrop
-        z: -1
-        onClicked: {
-            stackView.push("HomeScreen.qml")
-        }
-    }*/
 
     RowLayout {
         id: computerLayout
@@ -61,21 +51,6 @@ Item {
                 color: "transparent"
                 Layout.fillWidth: true
                 Layout.preferredHeight: root.height / 8
-                /*Rectangle{
-                    id: startButton
-                    color: "red"
-                    width: 40
-                    height: 40
-                    anchors.centerIn: parent
-                    MouseArea{
-                        id: startButtonMouseArea
-                        anchors.fill: parent
-                        onClicked: {
-                            console.log("start program");
-                            ramModel.startProgram();
-                        }
-                    }
-                }*/
 
                 Item {
                     width: 400
