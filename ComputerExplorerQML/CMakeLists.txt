@@ -8,8 +8,11 @@ find_package(Qt6 6.4 REQUIRED COMPONENTS Quick)
 
 qt_standard_project_setup()
 
+set(app_icon_resource_windows "${CMAKE_CURRENT_SOURCE_DIR}/images/photosurface.rc")
+
 qt_add_executable(appComputerExplorerQML
     main.cpp
+    ${app_icon_resource_windows}
 )
 
 qt_add_qml_module(appComputerExplorerQML
@@ -28,6 +31,7 @@ qt_add_qml_module(appComputerExplorerQML
         RESOURCES
         RESOURCES images/start_button.png
         RESOURCES images/arrow.png
+        SOURCES images/photosurface.rc
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
