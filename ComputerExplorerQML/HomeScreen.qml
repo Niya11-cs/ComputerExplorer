@@ -33,5 +33,14 @@ Item {
                 stackView.push("GameScreen.qml")
             }
         }
+
+        Button {
+            text: "Open Tutorial"
+            Layout.preferredWidth: 200
+            Layout.alignment: Qt.AlignHCenter
+            onClicked: {
+                Qt.openUrlExternally("https://drive.google.com/file/d/1MXS13fh8V928rPgea4DFYMsauaIKD1On/view?usp=sharing")
+            }
+        }
     }
 }
