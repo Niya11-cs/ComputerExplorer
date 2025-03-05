@@ -124,7 +124,7 @@ Item {
                                 color: active ? "pink" : (passive ? "grey" : "white")
                                 /*width: (index % 2) === 0 ? 60 : 160
                                 height: 30*/
-                                width: (index % 2) === 0 ? 70 : 170
+                                width: (index % 2) === 0 ? 70 : 200
                                 height: 35
 
                                 TextInput{
