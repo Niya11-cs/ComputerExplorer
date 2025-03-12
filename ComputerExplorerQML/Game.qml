@@ -40,11 +40,10 @@ Item {
         anchors.fill: parent
         spacing: 0
 
-        Rectangle {
+        ComputerButtons {
             Layout.fillHeight: true
             Layout.fillWidth: true
             Layout.preferredWidth: 1
-            color: "red"
         }
 
         ColumnLayout {
