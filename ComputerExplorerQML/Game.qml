@@ -53,7 +53,7 @@ Item {
             Layout.fillWidth: true
             Layout.preferredWidth: 2
 
-            Rectangle{
+            /*Rectangle{
                 id: controlsHolder
                 color: "transparent"
                 Layout.fillWidth: true
@@ -84,7 +84,7 @@ Item {
                         }
                     }
                 }
-            }
+            }*/
 
             ComputerRAM {
                 id: ram

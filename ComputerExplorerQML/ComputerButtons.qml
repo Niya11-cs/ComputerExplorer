@@ -6,24 +6,39 @@ Item {
         anchors.fill: parent
         color: "red"
     }
-    /*ColumnLayout {
-        spacing: -2
-        Rectangle {
-            color: "blue"
-            border.color: "yellow"
-            border.width: 2
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-        }
-        Repeater {
-            model: 10
-            Rectangle {
-                color: "blue"
-                border.color: "yellow"
-                border.width: 2
-                Layout.fillWidth: true
-                Layout.fillHeight: true
+
+    ColumnLayout {
+        anchors.centerIn: parent
+
+        Image {
+            id: startButton
+            Layout.preferredHeight: 40
+            Layout.preferredWidth: 40
+            source: "qrc:/ComputerExplorerQML/images/circle_svg_vector.svg"
+            fillMode: Image.PreserveAspectCrop
+
+            MouseArea {
+                id: startButtonMouseArea
+                anchors.fill: parent
+                cursorShape: Qt.PointingHandCursor
+
+                onClicked: {
+                    console.log("start program");
+                    computer.startProgram();
+                }
             }
         }
-    }*/
+
+        Rectangle {
+            Layout.preferredHeight: 40
+            Layout.preferredWidth: 40
+            color: "blue"
+        }
+
+        Rectangle {
+            Layout.preferredHeight: 40
+            Layout.preferredWidth: 40
+            color: "green"
+        }
+    }
 }

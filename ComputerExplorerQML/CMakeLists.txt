@@ -37,6 +37,10 @@ qt_add_qml_module(appComputerExplorerQML
         QML_FILES ComputerRAM.qml
         QML_FILES
         QML_FILES ComputerButtons.qml
+        RESOURCES
+        RESOURCES
+        RESOURCES
+        RESOURCES images/circle_svg_vector.svg
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
