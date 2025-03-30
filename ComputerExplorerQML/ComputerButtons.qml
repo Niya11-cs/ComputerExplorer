@@ -33,6 +33,16 @@ Item {
             Layout.preferredHeight: 40
             Layout.preferredWidth: 40
             color: "blue"
+            MouseArea {
+                id: resetButtonMouseArea
+                anchors.fill: parent
+                cursorShape: Qt.PointingHandCursor
+
+                onClicked: {
+                    console.log("reset program");
+                    computer.resetProgram();
+                }
+            }
         }
 
         Rectangle {

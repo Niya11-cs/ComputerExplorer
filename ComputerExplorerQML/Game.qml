@@ -35,100 +35,83 @@ Item {
         }
     }
 
-    RowLayout {
+    ColumnLayout {
         id: computerLayout
-        anchors.fill: parent
         spacing: 0
+        anchors.fill: parent
 
-        ComputerButtons {
+        Rectangle {
+            id: settingsHolder
+            Layout.preferredHeight: 1
             Layout.fillHeight: true
             Layout.fillWidth: true
-            Layout.preferredWidth: 1
+            color: "yellow"
         }
 
-        ColumnLayout {
-            id: computerLeftColumn
+        RowLayout {
+            id: gameLayout
             spacing: 0
+            Layout.preferredHeight: 7
             Layout.fillHeight: true
             Layout.fillWidth: true
-            Layout.preferredWidth: 2
 
-            /*Rectangle{
-                id: controlsHolder
-                color: "transparent"
+            ComputerButtons {
+                Layout.fillHeight: true
                 Layout.fillWidth: true
-                Layout.preferredHeight: root.height / 8
-
-                Item {
-                    width: 400
-                    height: 300
-
-                    Image {
-                        id: startButton
-                        source: "qrc:/ComputerExplorerQML/images/start_button.png"
-                        width: 125
-                        height: 125
-                        anchors.centerIn: parent
-                        anchors.horizontalCenterOffset: 155
-                        anchors.verticalCenterOffset: -30
-
-                        MouseArea {
-                            id: startButtonMouseArea
-                            anchors.fill: parent
-                            cursorShape: Qt.PointingHandCursor
-
-                            onClicked: {
-                                console.log("start program");
-                                computer.startProgram();
-                            }
-                        }
-                    }
-                }
-            }*/
-
-            ComputerRAM {
-                id: ram
-                Layout.fillWidth: true
-                Layout.preferredHeight: root.height * 7 / 8
-            }
-        }
-
-        ColumnLayout {
-            id: computerRightColumn
-            spacing: 0
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            Layout.preferredWidth: 2
-
-            Rectangle {
-                id: computerRightTopSpacer
-                color: "transparent"
-                Layout.fillWidth: true
-                Layout.preferredHeight: root.height / 8
+                Layout.preferredWidth: 1
             }
 
             ColumnLayout {
-                id: computerPartsLayout
+                id: computerLeftColumn
                 spacing: 0
+                Layout.fillHeight: true
                 Layout.fillWidth: true
-                Layout.preferredHeight: root.height * 7 / 8
+                Layout.preferredWidth: 2
 
-                ComputerScreen {
-                    id: screen
+                ComputerRAM {
+                    id: ram
                     Layout.fillWidth: true
-                    Layout.preferredHeight: parent.height / 3
+                    Layout.preferredHeight: root.height * 7 / 8
+                }
+            }
+
+            ColumnLayout {
+                id: computerRightColumn
+                spacing: 0
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                Layout.preferredWidth: 2
+
+                Rectangle {
+                    id: computerRightTopSpacer
+                    color: "transparent"
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: root.height / 8
                 }
 
-                ComputerCPUFlags {
-                    id: cpuFlags
+                ColumnLayout {
+                    id: computerPartsLayout
+                    spacing: 0
                     Layout.fillWidth: true
-                    Layout.preferredHeight: parent.height / 3
-                }
+                    Layout.preferredHeight: root.height * 7 / 8
 
-                ComputerRegisters {
-                    id: registers
-                    Layout.fillWidth: true
-                    Layout.preferredHeight: parent.height / 3
+                    ComputerScreen {
+                        id: screen
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: parent.height / 3
+                    }
+
+                    ComputerCPUFlags {
+                        id: cpuFlags
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: parent.height / 3
+                    }
+
+                    ComputerRegisters {
+                        id: registers
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: parent.height / 3
+                    }
                 }
             }
         }

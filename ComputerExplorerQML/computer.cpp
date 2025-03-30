@@ -33,6 +33,10 @@ void Computer::startProgram(){
     ramTimer.start(1000);
 }
 
+void Computer::resetProgram(){
+    std::cout << "C++ program reset" << std::endl;
+}
+
 void Computer::executeInstruction(){
     qDebug() << "Program counter: " << programCounter;
     if(currentRow >= 0 && currentRow < RAM_ROWS_COUNT){
