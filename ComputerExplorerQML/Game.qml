@@ -14,27 +14,6 @@ Item {
         z: -1
     }
 
-    Image {
-        id: myImage
-        source: "qrc:/ComputerExplorerQML/images/arrow.png"
-        width: 100
-        height: 100
-
-        anchors.leftMargin: 20
-        anchors.topMargin: 20
-        anchors.left: parent.left
-        anchors.top: parent.top
-
-        MouseArea {
-            anchors.fill: parent
-            cursorShape: Qt.PointingHandCursor
-
-            onClicked: {
-                stackView.push("HomeScreen.qml")
-            }
-        }
-    }
-
     ColumnLayout {
         id: computerLayout
         spacing: 0
@@ -46,6 +25,109 @@ Item {
             Layout.fillHeight: true
             Layout.fillWidth: true
             color: "yellow"
+
+            Image {
+                source: "qrc:/ComputerExplorerQML/images/past_arrow.png"
+                width: 100
+                height: 100
+
+                anchors.leftMargin: 20
+                anchors.left: parent.left
+                anchors.top: parent.top
+
+                MouseArea {
+                    anchors.fill: parent
+                    cursorShape: Qt.PointingHandCursor
+
+                    onClicked: {
+                        stackView.push(".qml")
+                    }
+                }
+            }
+
+            RowLayout {
+                spacing: 10
+                anchors.centerIn: parent
+
+                Image {
+                    source: "qrc:/ComputerExplorerQML/images/home_icon.png"
+                    Layout.preferredWidth: 100
+                    Layout.preferredHeight: 100
+
+                    MouseArea {
+                        anchors.fill: parent
+                        cursorShape: Qt.PointingHandCursor
+
+                        onClicked: {
+                            stackView.push("HomeScreen.qml")
+                        }
+                    }
+                }
+
+                Image {
+                    source: "qrc:/ComputerExplorerQML/images/level_icon.png"
+                    Layout.preferredWidth: 100
+                    Layout.preferredHeight: 100
+
+                    MouseArea {
+                        anchors.fill: parent
+                        cursorShape: Qt.PointingHandCursor
+
+                        onClicked: {
+                            stackView.push(".qml")
+                        }
+                    }
+                }
+
+                Image {
+                    source: "qrc:/ComputerExplorerQML/images/settings_icon.png"
+                    Layout.preferredWidth: 100
+                    Layout.preferredHeight: 100
+
+                    MouseArea {
+                        anchors.fill: parent
+                        cursorShape: Qt.PointingHandCursor
+
+                        onClicked: {
+                            stackView.push(".qml")
+                        }
+                    }
+                }
+
+                Image {
+                    source: "qrc:/ComputerExplorerQML/images/help_icon.png"
+                    Layout.preferredWidth: 100
+                    Layout.preferredHeight: 100
+
+                    MouseArea {
+                        anchors.fill: parent
+                        cursorShape: Qt.PointingHandCursor
+
+                        onClicked: {
+                            stackView.push(".qml")
+                        }
+                    }
+                }
+            }
+
+            Image {
+                source: "qrc:/ComputerExplorerQML/images/next_arrow.png"
+                width: 100
+                height: 100
+
+                anchors.leftMargin: 20
+                anchors.right: parent.right
+                anchors.top: parent.top
+
+                MouseArea {
+                    anchors.fill: parent
+                    cursorShape: Qt.PointingHandCursor
+
+                    onClicked: {
+                        stackView.push(".qml")
+                    }
+                }
+            }
         }
 
         RowLayout {

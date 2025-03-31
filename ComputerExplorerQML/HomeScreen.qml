@@ -24,7 +24,7 @@ Item {
             radius: 20
 
 
-            color: "#8b67be"
+            color: "#febb48"
 
             Text {
                 text: "Играй"
@@ -40,11 +40,11 @@ Item {
                 cursorShape: Qt.PointingHandCursor
 
                 onEntered: {
-                    parent.color = "#a07be0"
+                    parent.color = "#febb48"
                 }
 
                 onExited: {
-                    parent.color = "#8b67be"
+                    parent.color = "#febb48"
                 }
 
                 onClicked: {
@@ -54,7 +54,7 @@ Item {
 
             anchors.bottom: parent.bottom
             anchors.horizontalCenter: parent.horizontalCenter
-            anchors.bottomMargin: 20
+            anchors.bottomMargin: 60
         }
 
         Rectangle {
@@ -62,7 +62,47 @@ Item {
             Layout.preferredHeight: 50
             radius: 20
 
-            color: "#febb48"
+            color: "#8b67be"
+
+            anchors.margins: 20
+
+            Text {
+                text: "Настройки"
+                anchors.centerIn: parent
+                font.family: "Arial"
+                font.pointSize: 18
+                font.bold: true
+                color: "white"
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                cursorShape: Qt.PointingHandCursor
+
+                onEntered: {
+                    parent.color = "#8b67be"
+                }
+
+                onExited: {
+                    parent.color = "#8b67be"
+                }
+
+                onClicked: {
+                    Qt.openUrlExternally("https://nhsms-my.sharepoint.com/:v:/g/personal/niyanm_students_npmg_org/EY8yolBkfEZKmwyW0kkBf24BBIjKXdRY7qbiAeVRHIQoVA?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=flwXgXс")
+                }
+            }
+
+            anchors.top: parent.bottom
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.topMargin: 10
+        }
+
+        Rectangle {
+            Layout.preferredWidth: 200
+            Layout.preferredHeight: 50
+            radius: 20
+
+            color: "#f76259"
 
             anchors.margins: 20
 
@@ -80,21 +120,17 @@ Item {
                 cursorShape: Qt.PointingHandCursor
 
                 onEntered: {
-                    parent.color = "#febb48"
+                    parent.color = "#f76259"
                 }
 
                 onExited: {
-                    parent.color = "#febb48"
-                }
-
-                onClicked: {
-                    Qt.openUrlExternally("https://nhsms-my.sharepoint.com/:v:/g/personal/niyanm_students_npmg_org/EY8yolBkfEZKmwyW0kkBf24BBIjKXdRY7qbiAeVRHIQoVA?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=flwXgXс")
+                    parent.color = "#f76259"
                 }
             }
-
-            anchors.top: parent.bottom
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.topMargin: 10
         }
+
+        anchors.top: parent.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.topMargin: 10
     }
 }
