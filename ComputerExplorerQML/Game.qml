@@ -24,10 +24,10 @@ Item {
             Layout.preferredHeight: 1
             Layout.fillHeight: true
             Layout.fillWidth: true
-            color: "yellow"
+            color: '#e0eaff'
 
             Image {
-                source: "qrc:/ComputerExplorerQML/images/past_arrow.png"
+                source: "qrc:/ComputerExplorerQML/images/arrow_past_level.png"
                 width: 100
                 height: 100
 
@@ -40,7 +40,7 @@ Item {
                     cursorShape: Qt.PointingHandCursor
 
                     onClicked: {
-                        stackView.push(".qml")
+                        stackView.push("Levels.qml")
                     }
                 }
             }
@@ -65,7 +65,7 @@ Item {
                 }
 
                 Image {
-                    source: "qrc:/ComputerExplorerQML/images/level_icon.png"
+                    source: "qrc:/ComputerExplorerQML/images/save_icon.png"
                     Layout.preferredWidth: 100
                     Layout.preferredHeight: 100
 
@@ -74,7 +74,7 @@ Item {
                         cursorShape: Qt.PointingHandCursor
 
                         onClicked: {
-                            stackView.push(".qml")
+                            stackView.push("Levels.qml")
                         }
                     }
                 }
@@ -95,7 +95,7 @@ Item {
                 }
 
                 Image {
-                    source: "qrc:/ComputerExplorerQML/images/help_icon.png"
+                    source: "qrc:/ComputerExplorerQML/images/hint_icon.png"
                     Layout.preferredWidth: 100
                     Layout.preferredHeight: 100
 
@@ -111,7 +111,7 @@ Item {
             }
 
             Image {
-                source: "qrc:/ComputerExplorerQML/images/next_arrow.png"
+                source: "qrc:/ComputerExplorerQML/images/arrow_next_level.png"
                 width: 100
                 height: 100
 

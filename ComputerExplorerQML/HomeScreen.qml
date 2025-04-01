@@ -5,6 +5,7 @@ import QtQuick.Controls
 Item {
     width: parent.width
     height: parent.height
+    property StackView stack
 
     Image {
         id: backgroundImage
@@ -18,7 +19,7 @@ Item {
         anchors.centerIn: parent
         spacing: 32
 
-        Rectangle {
+        /*Rectangle {
             Layout.preferredWidth: 200
             Layout.preferredHeight: 50
             radius: 20
@@ -49,6 +50,39 @@ Item {
 
                 onClicked: {
                     stackView.push("Game.qml")
+                }
+            }
+
+            anchors.bottom: parent.bottom
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.bottomMargin: 60
+        }*/
+
+        Rectangle {
+            property StackView stackView
+
+            Layout.preferredWidth: 200
+            Layout.preferredHeight: 50
+            radius: 20
+            color: "#febb48"
+
+            Text {
+                text: "Играй"
+                anchors.centerIn: parent
+                font.family: "Arial"
+                font.pointSize: 18
+                font.bold: true
+                color: "white"
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                cursorShape: Qt.PointingHandCursor
+
+                onClicked: {
+                    if (stackView) {
+                        stackView.push("Levels.qml")
+                    }
                 }
             }
 
@@ -104,8 +138,6 @@ Item {
 
             color: "#f76259"
 
-            anchors.margins: 20
-
             Text {
                 text: "Правила"
                 anchors.centerIn: parent
@@ -125,6 +157,9 @@ Item {
 
                 onExited: {
                     parent.color = "#f76259"
+                }
+                onClicked: {
+                    Qt.openUrlExternally("https://nhsms-my.sharepoint.com/:v:/g/personal/niyanm_students_npmg_org/EY8yolBkfEZKmwyW0kkBf24BBIjKXdRY7qbiAeVRHIQoVA?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=flwXgXс")
                 }
             }
         }
