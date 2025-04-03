@@ -5,7 +5,6 @@ import QtQuick.Controls
 Item {
     width: parent.width
     height: parent.height
-    property StackView stack
 
     Image {
         id: backgroundImage
@@ -19,48 +18,7 @@ Item {
         anchors.centerIn: parent
         spacing: 32
 
-        /*Rectangle {
-            Layout.preferredWidth: 200
-            Layout.preferredHeight: 50
-            radius: 20
-
-
-            color: "#febb48"
-
-            Text {
-                text: "Играй"
-                anchors.centerIn: parent
-                font.family: "Arial"
-                font.pointSize: 18
-                font.bold: true
-                color: "white"
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                cursorShape: Qt.PointingHandCursor
-
-                onEntered: {
-                    parent.color = "#febb48"
-                }
-
-                onExited: {
-                    parent.color = "#febb48"
-                }
-
-                onClicked: {
-                    stackView.push("Game.qml")
-                }
-            }
-
-            anchors.bottom: parent.bottom
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.bottomMargin: 60
-        }*/
-
         Rectangle {
-            property StackView stackView
-
             Layout.preferredWidth: 200
             Layout.preferredHeight: 50
             radius: 20
