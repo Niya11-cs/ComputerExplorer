@@ -49,6 +49,16 @@ Item {
             Layout.preferredHeight: 40
             Layout.preferredWidth: 40
             color: "green"
+            MouseArea {
+                id: clearButtonMouseArea
+                anchors.fill: parent
+                cursorShape: Qt.PointingHandCursor
+
+                onClicked: {
+                    console.log("clear program");
+                    computer.clearProgram();
+                }
+            }
         }
     }
 }

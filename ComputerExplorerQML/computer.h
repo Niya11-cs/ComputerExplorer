@@ -82,6 +82,7 @@ signals:
 public slots:
     void startProgram();
     void resetProgram();
+    void clearProgram();
     void executeInstruction();
     void executeStopInstruction();
     void executeLoadInstruction(QString cellValue);

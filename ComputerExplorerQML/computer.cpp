@@ -37,6 +37,33 @@ void Computer::resetProgram(){
     std::cout << "C++ program reset" << std::endl;
 }
 
+void Computer::clearProgram(){
+    std::cout << "C++ program clear" << std::endl;
+    ramTimer.stop();
+    for (int rowIdx = 0; rowIdx < RAM_ROWS_COUNT; ++rowIdx) {
+        for (int colIdx = 0; colIdx < RAM_COLS_COUNT; ++colIdx) {
+            QString cellValue = "-";
+            if (colIdx == 0) {
+                cellValue = QString("%1").arg(rowIdx, 4, 2, QChar('0'));
+            }
+            setData(this->index((rowIdx * RAM_COLS_COUNT) + colIdx), false, ActiveRole);
+            setData(this->index((rowIdx * RAM_COLS_COUNT) + colIdx), false, PassiveRole);
+            setData(this->index((rowIdx * RAM_COLS_COUNT) + colIdx), cellValue, ValueRole);
+        }
+    }
+
+    setOutputValue("");
+    setRegAValue("-");
+    setRegBValue("-");
+    setRegCValue("-");
+    programCounter = 0;
+    previousRow = -1;
+    currentRow = 0;
+    setFlagEqualValue(false);
+    setFlagLessThanValue(false);
+    setFlagGreaterThanValue(false);
+}
+
 void Computer::executeInstruction(){
     qDebug() << "Program counter: " << programCounter;
     if(currentRow >= 0 && currentRow < RAM_ROWS_COUNT){
