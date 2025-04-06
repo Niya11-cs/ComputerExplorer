@@ -35,6 +35,24 @@ void Computer::startProgram(){
 
 void Computer::resetProgram(){
     std::cout << "C++ program reset" << std::endl;
+    ramTimer.stop();
+    for (int rowIdx = 0; rowIdx < RAM_ROWS_COUNT; ++rowIdx) {
+        for (int colIdx = 0; colIdx < RAM_COLS_COUNT; ++colIdx) {
+            setData(this->index((rowIdx * RAM_COLS_COUNT) + colIdx), false, ActiveRole);
+            setData(this->index((rowIdx * RAM_COLS_COUNT) + colIdx), false, PassiveRole);
+        }
+    }
+
+    setOutputValue("");
+    setRegAValue("-");
+    setRegBValue("-");
+    setRegCValue("-");
+    programCounter = 0;
+    previousRow = -1;
+    currentRow = 0;
+    setFlagEqualValue(false);
+    setFlagLessThanValue(false);
+    setFlagGreaterThanValue(false);
 }
 
 void Computer::clearProgram(){

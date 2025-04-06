@@ -50,7 +50,8 @@ Item {
                 anchors.centerIn: parent
 
                 Image {
-                    source: "qrc:/ComputerExplorerQML/images/home_icon.png"
+                    //source: "qrc:/ComputerExplorerQML/images/home_icon.png"
+                    source: "qrc:/ComputerExplorerQML/images/img_2.png"
                     Layout.preferredWidth: 100
                     Layout.preferredHeight: 100
 
@@ -65,7 +66,8 @@ Item {
                 }
 
                 Image {
-                    source: "qrc:/ComputerExplorerQML/images/save_icon.png"
+                    //source: "qrc:/ComputerExplorerQML/images/save_icon.png"
+                    source: "qrc:/ComputerExplorerQML/images/map_icon.svg"
                     Layout.preferredWidth: 100
                     Layout.preferredHeight: 100
 
@@ -80,9 +82,11 @@ Item {
                 }
 
                 Image {
-                    source: "qrc:/ComputerExplorerQML/images/settings_icon.png"
+                    //source: "qrc:/ComputerExplorerQML/images/settings_icon.png"
+                    source: "qrc:/ComputerExplorerQML/images/message_warning_icon.svg"
                     Layout.preferredWidth: 100
                     Layout.preferredHeight: 100
+                    fillMode: Image.PreserveAspectFit
 
                     MouseArea {
                         anchors.fill: parent
