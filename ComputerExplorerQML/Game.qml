@@ -27,9 +27,11 @@ Item {
             color: '#e0eaff'
 
             Image {
-                source: "qrc:/ComputerExplorerQML/images/arrow_past_level.png"
+                source: "qrc:/ComputerExplorerQML/images/previous_arrow_wb.png"
                 width: 100
                 height: 100
+                sourceSize: Qt.size(100, 100)
+                fillMode: Image.PreserveAspectFit
 
                 anchors.leftMargin: 20
                 anchors.left: parent.left
@@ -50,10 +52,11 @@ Item {
                 anchors.centerIn: parent
 
                 Image {
-                    //source: "qrc:/ComputerExplorerQML/images/home_icon.png"
-                    source: "qrc:/ComputerExplorerQML/images/img_2.png"
+                    source: "qrc:/ComputerExplorerQML/images/home_wb.png"
                     Layout.preferredWidth: 100
                     Layout.preferredHeight: 100
+                    sourceSize: Qt.size(100, 100)
+                    fillMode: Image.PreserveAspectFit
 
                     MouseArea {
                         anchors.fill: parent
@@ -66,10 +69,11 @@ Item {
                 }
 
                 Image {
-                    //source: "qrc:/ComputerExplorerQML/images/save_icon.png"
-                    source: "qrc:/ComputerExplorerQML/images/map_icon.svg"
+                    source: "qrc:/ComputerExplorerQML/images/save_wb.png"
                     Layout.preferredWidth: 100
                     Layout.preferredHeight: 100
+                    sourceSize: Qt.size(100, 100)
+                    fillMode: Image.PreserveAspectFit
 
                     MouseArea {
                         anchors.fill: parent
@@ -82,10 +86,10 @@ Item {
                 }
 
                 Image {
-                    //source: "qrc:/ComputerExplorerQML/images/settings_icon.png"
-                    source: "qrc:/ComputerExplorerQML/images/message_warning_icon.svg"
+                    source: "qrc:/ComputerExplorerQML/images/settings_wb.png"
                     Layout.preferredWidth: 100
                     Layout.preferredHeight: 100
+                    sourceSize: Qt.size(100, 100)
                     fillMode: Image.PreserveAspectFit
 
                     MouseArea {
@@ -102,6 +106,8 @@ Item {
                     source: "qrc:/ComputerExplorerQML/images/hint_icon.png"
                     Layout.preferredWidth: 100
                     Layout.preferredHeight: 100
+                    sourceSize: Qt.size(100, 100)
+                    fillMode: Image.PreserveAspectFit
 
                     MouseArea {
                         anchors.fill: parent
@@ -115,9 +121,11 @@ Item {
             }
 
             Image {
-                source: "qrc:/ComputerExplorerQML/images/arrow_next_level.png"
+                source: "qrc:/ComputerExplorerQML/images/next_arrow_wb.png"
                 width: 100
                 height: 100
+                sourceSize: Qt.size(100, 100)
+                fillMode: Image.PreserveAspectFit
 
                 anchors.leftMargin: 20
                 anchors.right: parent.right
