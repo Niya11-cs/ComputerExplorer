@@ -12,9 +12,10 @@ Item {
 
         Image {
             id: startButton
-            Layout.preferredHeight: 40
-            Layout.preferredWidth: 40
-            source: "qrc:/ComputerExplorerQML/images/circle_svg_vector.svg"
+            Layout.preferredHeight: 60
+            Layout.preferredWidth: 60
+            source: "qrc:/ComputerExplorerQML/images/start_wb.png"
+            sourceSize: Qt.size(60, 60)
             fillMode: Image.PreserveAspectCrop
 
             MouseArea {
