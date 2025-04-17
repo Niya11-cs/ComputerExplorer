@@ -33,6 +33,11 @@ void Computer::startProgram(){
     ramTimer.start(1000);
 }
 
+void Computer::stopProgram(){
+    std::cout << "C++ program stop" << std::endl;
+    ramTimer.stop();
+}
+
 void Computer::resetProgram(){
     std::cout << "C++ program reset" << std::endl;
     ramTimer.stop();
@@ -80,6 +85,12 @@ void Computer::clearProgram(){
     setFlagEqualValue(false);
     setFlagLessThanValue(false);
     setFlagGreaterThanValue(false);
+}
+
+void Computer::nextInstruction(){
+    std::cout << "C++ program next instruction" << std::endl;
+    ramTimer.stop();
+    executeInstruction();
 }
 
 void Computer::executeInstruction(){
