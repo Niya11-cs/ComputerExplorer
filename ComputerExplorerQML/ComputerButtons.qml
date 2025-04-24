@@ -70,7 +70,7 @@ Item {
             id: clearButton
             Layout.preferredHeight: 60
             Layout.preferredWidth: 60
-            source: "qrc:/ComputerExplorerQML/images/reset_wb.png"
+            source: "qrc:/ComputerExplorerQML/images/clear_wb.png"
             sourceSize: Qt.size(60, 60)
             fillMode: Image.PreserveAspectFit
 

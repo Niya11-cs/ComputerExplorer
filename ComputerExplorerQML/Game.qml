@@ -69,7 +69,7 @@ Item {
                 }
 
                 Image {
-                    source: "qrc:/ComputerExplorerQML/images/save_wb.png"
+                    source: "qrc:/ComputerExplorerQML/images/levels_icon_wb.png"
                     Layout.preferredWidth: 100
                     Layout.preferredHeight: 100
                     sourceSize: Qt.size(100, 100)
