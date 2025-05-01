@@ -160,13 +160,53 @@ Item {
                 spacing: 0
                 Layout.fillHeight: true
                 Layout.fillWidth: true
-                Layout.preferredWidth: 2
+                Layout.preferredWidth: 1
 
                 ComputerRAM {
                     id: ram
                     Layout.fillWidth: true
                     Layout.preferredHeight: root.height * 7 / 8
                 }
+            }
+
+            ColumnLayout {
+                id: computerMiddleColumn
+                spacing: 0
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                Layout.preferredWidth: 1
+
+                ComputerCPUFlags {
+                    id: cpuFlags
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: 1
+                }
+
+                Rectangle {
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: 1
+                    color:"red"
+                }
+
+                Rectangle {
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: 1
+                    color: "blue"
+                }
+                /*ComputerCPUFlags {
+                    id: cpuFlags
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: parent.height / 3
+                }
+
+                ComputerRegisters {
+                    id: registers
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: parent.height / 3
+                }*/
             }
 
             ColumnLayout {
@@ -195,7 +235,7 @@ Item {
                         Layout.preferredHeight: parent.height / 3
                     }
 
-                    ComputerCPUFlags {
+                    /*ComputerCPUFlags {
                         id: cpuFlags
                         Layout.fillWidth: true
                         Layout.preferredHeight: parent.height / 3
@@ -205,7 +245,7 @@ Item {
                         id: registers
                         Layout.fillWidth: true
                         Layout.preferredHeight: parent.height / 3
-                    }
+                    }*/
                 }
             }
         }

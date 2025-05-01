@@ -18,7 +18,7 @@ Item {
 
                 Text{
                     id: registerAName
-                    color: "green"
+                    color: "#385184"
                     anchors.centerIn: parent
                     text: "Reg A"
                     font.pixelSize: parent.height - 10
@@ -33,7 +33,7 @@ Item {
 
                 Text{
                     id: registerBName
-                    color: "green"
+                    color: "#385184"
                     anchors.centerIn: parent
                     text: "Reg B"
                     font.pixelSize: parent.height - 10
@@ -48,7 +48,7 @@ Item {
 
                 Text{
                     id: registerCName
-                    color: "green"
+                    color: "#385184"
                     anchors.centerIn: parent
                     text: "Reg C"
                     font.pixelSize: parent.height - 10
@@ -61,7 +61,7 @@ Item {
             spacing: -2
             Rectangle{
                 id: registerAValueHolder
-                border.color: "green"
+                border.color: "#385184"
                 border.width: 2
                 color: "white"
                 Layout.preferredWidth: 140
@@ -78,7 +78,7 @@ Item {
 
             Rectangle{
                 id: registerBValueHolder
-                border.color: "green"
+                border.color: "#385184"
                 border.width: 2
                 color: "white"
                 Layout.preferredWidth: 140
@@ -95,7 +95,7 @@ Item {
 
             Rectangle{
                 id: registerCValueHolder
-                border.color: "green"
+                border.color: "#385184"
                 border.width: 2
                 color: "white"
                 Layout.preferredWidth: 140

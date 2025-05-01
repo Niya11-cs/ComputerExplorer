@@ -1,17 +1,18 @@
-   import QtQuick
+import QtQuick
 import QtQuick.Layouts
 
 Item {
     ColumnLayout{
         id: cpuFlagsHolderLayout
-        //anchors.centerIn: parent
+        anchors.centerIn: parent
         spacing: 0
-        Rectangle{
+        /*Rectangle{
             id: cpuFlagspacer
-            color: "transparent"
+            //color: "transparent"
+            color: "red"
             Layout.preferredHeight: 20
             Layout.fillWidth: true
-        }
+        }*/
         /*Rectangle{
             id: cpuTextHolder
             color: "transparent"
@@ -42,29 +43,29 @@ Item {
                     spacing: -2
                     Rectangle{
                         id: flagEqualValueHolder
-                        border.color: "green"
+                        border.color: "#385184"
                         border.width: 2
                         color: computer.flagEqualValue ? "red" : "white"
                         Layout.preferredWidth: 30
-                        Layout.preferredHeight: 30
+                        Layout.preferredHeight: 35
                     }
 
                     Rectangle{
                         id: flagLessThanValueHolder
-                        border.color: "green"
+                        border.color: "#385184"
                         border.width: 2
                         color: computer.flagLessThanValue ? "green" : "white"
                         Layout.preferredWidth: 30
-                        Layout.preferredHeight: 30
+                        Layout.preferredHeight: 35
                     }
 
                     Rectangle{
                         id: flagGreaterThanValueHolder
-                        border.color: "green"
+                        border.color: "#385184"
                         border.width: 2
                         color: computer.flagGreaterThanValue ? "blue" : "white"
                         Layout.preferredWidth: 30
-                        Layout.preferredHeight: 30
+                        Layout.preferredHeight: 35
                     }
                 }
 
@@ -73,51 +74,51 @@ Item {
                     spacing: -2
                     Rectangle{
                         id: flagEqualNameHolder
-                        border.color: "green"
+                        border.color: "#385184"
                         color: "white"
                         border.width: 2
-                        Layout.preferredWidth: 170
-                        Layout.preferredHeight: 30
+                        Layout.preferredWidth: 200
+                        Layout.preferredHeight: 35
 
                         Text{
                             id: flagEqualName
-                            color: "green"
+                            color: "#385184"
                             anchors.centerIn: parent
-                            text: "EQ flag"
+                            text: "EQ (Equal)"
                             font.pixelSize: parent.height - 10
                         }
                     }
 
                     Rectangle{
                         id: flagLessThanNameHolder
-                        border.color: "green"
+                        border.color: "#385184"
                         color: "white"
                         border.width: 2
-                        Layout.preferredWidth: 170
-                        Layout.preferredHeight: 30
+                        Layout.preferredWidth: 200
+                        Layout.preferredHeight: 35
 
                         Text{
                             id: flagLessThanName
-                            color: "green"
+                            color: "#385184"
                             anchors.centerIn: parent
-                            text: "LT flag"
+                            text: "LT (Less Than)"
                             font.pixelSize: parent.height - 10
                         }
                     }
 
                     Rectangle{
                         id: flagGreaterThanNameHolder
-                        border.color: "green"
+                        border.color: "#385184"
                         color: "white"
                         border.width: 2
-                        Layout.preferredWidth: 170
-                        Layout.preferredHeight: 30
+                        Layout.preferredWidth: 200
+                        Layout.preferredHeight: 35
 
                         Text{
                             id: flagGreaterThanName
-                            color: "green"
+                            color: "#385184"
                             anchors.centerIn: parent
-                            text: "GT flag"
+                            text: "GT (Greater Than)"
                             font.pixelSize: parent.height - 10
                         }
                     }

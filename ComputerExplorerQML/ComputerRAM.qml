@@ -16,7 +16,7 @@ Item {
                 id: ramText
                 anchors.centerIn: parent
                 text: "RAM"
-                color: "green"
+                color: "#385184"
                 font.pixelSize: 20
             }
         }
@@ -35,7 +35,7 @@ Item {
 
                 Rectangle{
                     id: ramCellRect
-                    border.color: "green"
+                    border.color: "#385184"
                     border.width: 2
                     color: active ? "pink" : (passive ? "grey" : "white")
                     /*width: (index % 2) === 0 ? 60 : 160
