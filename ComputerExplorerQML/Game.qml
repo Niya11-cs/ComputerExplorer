@@ -165,7 +165,7 @@ Item {
                 ComputerRAM {
                     id: ram
                     Layout.fillWidth: true
-                    Layout.preferredHeight: root.height * 7 / 8
+                    Layout.fillHeight: true
                 }
             }
 
@@ -184,29 +184,19 @@ Item {
                 }
 
                 Rectangle {
+                    id: cpuFlagsAndRegistersSpacer
                     Layout.fillHeight: true
                     Layout.fillWidth: true
                     Layout.preferredHeight: 1
-                    color:"red"
-                }
-
-                Rectangle {
-                    Layout.fillHeight: true
-                    Layout.fillWidth: true
-                    Layout.preferredHeight: 1
-                    color: "blue"
-                }
-                /*ComputerCPUFlags {
-                    id: cpuFlags
-                    Layout.fillWidth: true
-                    Layout.preferredHeight: parent.height / 3
+                    color:"transparent"
                 }
 
                 ComputerRegisters {
                     id: registers
+                    Layout.fillHeight: true
                     Layout.fillWidth: true
-                    Layout.preferredHeight: parent.height / 3
-                }*/
+                    Layout.preferredHeight: 1
+                }
             }
 
             ColumnLayout {
@@ -216,36 +206,15 @@ Item {
                 Layout.fillWidth: true
                 Layout.preferredWidth: 2
 
-                Rectangle {
-                    id: computerRightTopSpacer
-                    color: "transparent"
+                ComputerScreen {
+                    Layout.fillHeight: true
                     Layout.fillWidth: true
-                    Layout.preferredHeight: root.height / 8
                 }
 
-                ColumnLayout {
-                    id: computerPartsLayout
-                    spacing: 0
+                Rectangle{
+                    Layout.fillHeight: true
                     Layout.fillWidth: true
-                    Layout.preferredHeight: root.height * 7 / 8
-
-                    ComputerScreen {
-                        id: screen
-                        Layout.fillWidth: true
-                        Layout.preferredHeight: parent.height / 3
-                    }
-
-                    /*ComputerCPUFlags {
-                        id: cpuFlags
-                        Layout.fillWidth: true
-                        Layout.preferredHeight: parent.height / 3
-                    }
-
-                    ComputerRegisters {
-                        id: registers
-                        Layout.fillWidth: true
-                        Layout.preferredHeight: parent.height / 3
-                    }*/
+                    color: "transparent"
                 }
             }
         }
