@@ -164,6 +164,7 @@ Item {
 
                 ComputerRAM {
                     id: ram
+                    Layout.alignment: Qt.AlignTop
                     Layout.fillWidth: true
                     Layout.fillHeight: true
                 }

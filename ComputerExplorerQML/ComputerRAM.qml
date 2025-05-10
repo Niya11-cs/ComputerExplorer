@@ -4,7 +4,7 @@ import QtQuick.Layouts
 Item {
     ColumnLayout{
         id: ramLayout
-        anchors.centerIn: parent
+        //anchors.centerIn: parent
         spacing: 0
 
         Rectangle{
