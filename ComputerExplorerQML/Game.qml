@@ -196,17 +196,6 @@ Item {
                     Layout.preferredHeight: 1
                     color: "blue"
                 }
-                /*ComputerCPUFlags {
-                    id: cpuFlags
-                    Layout.fillWidth: true
-                    Layout.preferredHeight: parent.height / 3
-                }
-
-                ComputerRegisters {
-                    id: registers
-                    Layout.fillWidth: true
-                    Layout.preferredHeight: parent.height / 3
-                }*/
             }
 
             ColumnLayout {
