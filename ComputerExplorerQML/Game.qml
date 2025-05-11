@@ -6,14 +6,6 @@ Item {
     width: parent.width
     height: parent.height
 
-    Image {
-        id: gameBackgroundImage
-        anchors.fill: parent
-        source: "qrc:/ComputerExplorerQML/images/first_level.png"
-        fillMode: Image.PreserveAspectCrop
-        z: -1
-    }
-
     ColumnLayout {
         id: computerLayout
         spacing: 0
@@ -203,10 +195,15 @@ Item {
                     Layout.fillWidth: true
                 }
 
-                Rectangle{
+                Item {
                     Layout.fillHeight: true
                     Layout.fillWidth: true
-                    color: "transparent"
+
+                    Image {
+                        anchors.fill: parent
+                        source: "qrc:/ComputerExplorerQML/images/zuks.png"
+                        fillMode: Image.PreserveAspectFit
+                    }
                 }
             }
         }

@@ -3,7 +3,7 @@ import QtQuick.Controls
 
 Window {
     id: mainWindow
-    color: "#5fff5e"
+    color: "#e0eaff"
     visibility: "Maximized"
     width: Screen.width
     height: Screen.height
