@@ -5,6 +5,8 @@ Item {
     ColumnLayout{
         id: ramLayout
         anchors.centerIn: parent
+        /*anchors.top: parent.top
+        anchors.horizontalCenter: parent.horizontalCenter*/
         spacing: 0
 
         Rectangle{

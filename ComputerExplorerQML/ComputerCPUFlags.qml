@@ -4,7 +4,8 @@ import QtQuick.Layouts
 Item {
     ColumnLayout {
         id: flagsLayout
-        anchors.centerIn: parent
+        anchors.top: parent.top
+        anchors.horizontalCenter: parent.horizontalCenter
         spacing: 0
 
         Rectangle{

@@ -183,14 +183,6 @@ Item {
                     Layout.preferredHeight: 1
                 }
 
-                Rectangle {
-                    id: cpuFlagsAndRegistersSpacer
-                    Layout.fillHeight: true
-                    Layout.fillWidth: true
-                    Layout.preferredHeight: 1
-                    color:"transparent"
-                }
-
                 ComputerRegisters {
                     id: registers
                     Layout.fillHeight: true

@@ -4,7 +4,8 @@ import QtQuick.Layouts
 Item {
     ColumnLayout {
         id: registersLayout
-        anchors.centerIn: parent
+        anchors.bottom: parent.top
+        anchors.horizontalCenter: parent.horizontalCenter
         spacing: 0
 
         Rectangle{
