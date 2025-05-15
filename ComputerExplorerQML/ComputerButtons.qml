@@ -10,7 +10,7 @@ Item {
             id: startButton
             Layout.preferredHeight: 60
             Layout.preferredWidth: 60
-            source: "qrc:/ComputerExplorerQML/images/start_wb.png"
+            source: startButtonMouseArea.containsMouse ? "qrc:/ComputerExplorerQML/images/pause_wb.png" : "qrc:/ComputerExplorerQML/images/start_wb.png"
             sourceSize: Qt.size(60, 60)
             fillMode: Image.PreserveAspectFit
 
@@ -18,6 +18,7 @@ Item {
                 id: startButtonMouseArea
                 anchors.fill: parent
                 cursorShape: Qt.PointingHandCursor
+                hoverEnabled: true
 
                 onClicked: {
                     console.log("start program");
