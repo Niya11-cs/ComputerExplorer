@@ -26,11 +26,11 @@ qt_add_qml_module(appComputerExplorerQML
         QML_FILES Game.qml
         RESOURCES images/main_page.png
         RESOURCES images/home_screen_background.png
-        RESOURCES images/first_level.png
         RESOURCES
         RESOURCES
-        RESOURCES images/start_button.png
-        RESOURCES images/arrow.png
+        RESOURCES
+        RESOURCES
+        RESOURCES
         QML_FILES ComputerScreen.qml
         QML_FILES ComputerCPUFlags.qml
         QML_FILES ComputerRegisters.qml
@@ -40,32 +40,31 @@ qt_add_qml_module(appComputerExplorerQML
         RESOURCES
         RESOURCES
         RESOURCES
-        RESOURCES images/circle_svg_vector.svg
         RESOURCES
-        RESOURCES images/past_arrow.png
-        RESOURCES images/next_arrow.png
+        RESOURCES
+        RESOURCES
+        RESOURCES
         RESOURCES
         QML_FILES
-        RESOURCES images/settings_icon.png
-        RESOURCES images/help_icon.png
+        RESOURCES
+        RESOURCES
         RESOURCES images/level_icon.png
         QML_FILES
         QML_FILES
         RESOURCES images/levels.png
         QML_FILES Levels.qml
-        RESOURCES images/arrow_next_level.png
+        RESOURCES
         RESOURCES images/home_icon.png
-        RESOURCES images/save_icon.png
-        RESOURCES images/save_icon.png
-        RESOURCES images/arrow_past_level.png
+        RESOURCES
+        RESOURCES
         RESOURCES images/first_level_icon.png
         RESOURCES images/1levels.jpg
-        RESOURCES images/hint_icon.jpg
-        RESOURCES images/settings_icon.jpg
-        RESOURCES images/hint_icon.png
-        RESOURCES images/lut.svg
-        RESOURCES images/map_icon.svg
-        RESOURCES images/message_warning_icon.svg
+        RESOURCES
+        RESOURCES
+        RESOURCES
+        RESOURCES
+        RESOURCES
+        RESOURCES
         RESOURCES images/img_2.png
         RESOURCES
         RESOURCES images/start_wb.png
