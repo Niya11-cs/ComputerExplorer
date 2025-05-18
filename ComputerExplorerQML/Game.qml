@@ -95,7 +95,7 @@ Item {
                 }
 
                 Image {
-                    source: "qrc:/ComputerExplorerQML/images/hint_icon.png"
+                    source: "qrc:/ComputerExplorerQML/images/hint_wb.png"
                     Layout.preferredWidth: 100
                     Layout.preferredHeight: 100
                     sourceSize: Qt.size(100, 100)
