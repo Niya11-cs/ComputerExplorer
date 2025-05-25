@@ -24,11 +24,11 @@ Item {
 
         RowLayout {
             id: registersValuesAndNamesLayout
-            spacing: -2
+            spacing: 2
 
             ColumnLayout{
                 id: registersNamesLayouts
-                spacing: -2
+                spacing: 2
                 Rectangle{
                     id: registerANameHolder
                     Layout.preferredWidth: 35
@@ -83,7 +83,7 @@ Item {
 
             ColumnLayout {
                 id: registersValuesLayout
-                spacing: -2
+                spacing: 2
                 Rectangle{
                     id: registerAValueHolder
                     border.color: "#385184"

@@ -27,8 +27,8 @@ Item {
             id: ramCellsLayout
             rows: 16
             columns: 2
-            rowSpacing: -2
-            columnSpacing: -2
+            rowSpacing: 2
+            columnSpacing: 2
 
 
             Repeater{

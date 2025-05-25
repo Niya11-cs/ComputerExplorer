@@ -24,11 +24,11 @@ Item {
 
         RowLayout {
             id: flagsValuesAndNamesLayout
-            spacing: -2
+            spacing: 2
 
             ColumnLayout {
                 id: flagsValuesLayout
-                spacing: -2
+                spacing: 2
                 Rectangle{
                     id: flagEqualValueHolder
                     border.color: "#385184"
@@ -59,7 +59,7 @@ Item {
 
             ColumnLayout{
                 id: flagsNamesLayouts
-                spacing: -2
+                spacing: 2
                 Rectangle{
                     id: flagEqualNameHolder
                     border.color: "#385184"
