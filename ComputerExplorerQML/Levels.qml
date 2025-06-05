@@ -11,60 +11,40 @@ Item {
         id: backgroundImage
         anchors.fill: parent
         source: "qrc:/ComputerExplorerQML/images/levels.png"
-        fillMode: Image.PreserveAspectCrop
-        z: -1
     }
 
-    /*RowLayout {
-        spacing: 0
+    Rectangle {
+        id: buttonsHolder
+        anchors.fill: parent
+        color: "transparent"
 
-        Repeater {
-            model: 25
-
-            Rectangle {
-                width: Screen.width * 1 / 25
-                height: Screen.height
-                border.color: "black"
-
-                Image {
-                    visible: index % 2 === 0
-                    anchors.centerIn: parent
-                    source: "qrc:/ComputerExplorerQML/images/levels_icon.png"
-                    width: Screen.width * 1 / 25
-                    height: Screen.width * 1 / 25
-
+        GridLayout{
+            anchors.fill: parent
+            rows: 18
+            columns: 32
+            rowSpacing: 0
+            columnSpacing: 0
+            Repeater{
+                model: 32*18
+                Rectangle{
+                    visible: true
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    color: "transparent";
                     MouseArea {
                         anchors.fill: parent
+                        cursorShape: (index === 356) ? Qt.PointingHandCursor : Qt.ArrowCursor
                         onClicked: {
-                            console.log("Clicked image at index", index)
+                            if (index === 356|| index === 133 || index === 171|| index === 296){
+                                console.log("Button clicked: " + index)
+                                stackView.push("Game.qml")
+                            }
+                            else {
+                                console.log("Empty rec")
+                            }
                         }
                     }
                 }
-            }
-        }
-    }*/
-
-
-    Image {
-        source: "images/1levels.jpg"
-        anchors.fill: parent
-    }
-
-    Image {
-        source: "images/first_level_icon.png"
-        width: 345
-        height: 275
-        anchors.bottom: parent.bottom
-        anchors.left: parent.left
-        anchors.bottomMargin: 230
-        anchors.leftMargin: 120
-
-        MouseArea {
-            anchors.fill: parent
-            cursorShape: Qt.PointingHandCursor
-
-            onClicked: {
-                stackView.push("Game.qml")
             }
         }
     }
