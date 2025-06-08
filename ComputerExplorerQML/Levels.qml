@@ -20,22 +20,24 @@ Item {
 
         GridLayout{
             anchors.fill: parent
-            rows: 18
-            columns: 32
+            rows: 7
+            columns: 14
             rowSpacing: 0
             columnSpacing: 0
             Repeater{
-                model: 32*18
+                model: 14*7
                 Rectangle{
                     visible: true
                     Layout.fillWidth: true
                     Layout.fillHeight: true
                     color: "transparent";
+                    border.color: "red"
+                    border.width: 1
                     MouseArea {
                         anchors.fill: parent
-                        cursorShape: (index === 356) ? Qt.PointingHandCursor : Qt.ArrowCursor
+                        cursorShape: (index === 17) ? Qt.PointingHandCursor : Qt.ArrowCursor
                         onClicked: {
-                            if (index === 356|| index === 133 || index === 171|| index === 296){
+                            if (index === 17){
                                 console.log("Button clicked: " + index)
                                 stackView.push("Game.qml")
                             }
