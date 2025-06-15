@@ -4,6 +4,7 @@ import QtQuick.Layouts
 Item {
     id: root
 
+
     ColumnLayout {
         id: computerLayout
         spacing: 0

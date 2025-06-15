@@ -1,9 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
-import QtQuick.Controls
 
 Item {
-
     Image {
         id: backgroundImage
         anchors.fill: parent
@@ -14,7 +12,7 @@ Item {
 
     ColumnLayout {
         anchors.centerIn: parent
-        spacing: 32
+        spacing: 16
 
         Rectangle {
             Layout.preferredWidth: 200
@@ -39,20 +37,13 @@ Item {
                     mainScreensStack.currentIndex = 1
                 }
             }
-
-            anchors.bottom: parent.bottom
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.bottomMargin: 60
         }
 
         Rectangle {
             Layout.preferredWidth: 200
             Layout.preferredHeight: 50
             radius: 20
-
             color: "#8b67be"
-
-            anchors.margins: 20
 
             Text {
                 text: "Настройки"
@@ -79,10 +70,6 @@ Item {
                     Qt.openUrlExternally("https://nhsms-my.sharepoint.com/:v:/g/personal/niyanm_students_npmg_org/EY8yolBkfEZKmwyW0kkBf24BBIjKXdRY7qbiAeVRHIQoVA?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=flwXgXс")
                 }
             }
-
-            anchors.top: parent.bottom
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.topMargin: 10
         }
 
         Rectangle {
@@ -117,9 +104,5 @@ Item {
                 }
             }
         }
-
-        anchors.top: parent.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.topMargin: 10
     }
 }

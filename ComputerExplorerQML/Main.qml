@@ -1,11 +1,10 @@
 import QtQuick
-import QtQuick.Controls
 import QtQuick.Layouts
 
 Window {
     id: mainWindow
     color: "#e0eaff"
-    visibility: "Maximized"
+    visibility: Window.Maximized
     width: Screen.width
     height: Screen.height
     visible: true
