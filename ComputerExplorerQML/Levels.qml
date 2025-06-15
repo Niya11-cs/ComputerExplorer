@@ -4,8 +4,6 @@ import QtQuick.Controls 2.15
 
 Item {
     visible: true
-    width: parent.width
-    height: parent.height
 
     Image {
         id: backgroundImage
@@ -39,7 +37,7 @@ Item {
                         onClicked: {
                             if (index === 17){
                                 console.log("Button clicked: " + index)
-                                stackView.push("Game.qml")
+                                mainScreensStack.currentIndex = 2
                             }
                             else {
                                 console.log("Empty rec")

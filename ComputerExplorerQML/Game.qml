@@ -3,8 +3,6 @@ import QtQuick.Layouts
 
 Item {
     id: root
-    width: parent.width
-    height: parent.height
 
     ColumnLayout {
         id: computerLayout
@@ -34,7 +32,7 @@ Item {
                     cursorShape: Qt.PointingHandCursor
 
                     onClicked: {
-                        stackView.push("Levels.qml")
+                        mainScreensStack.currentIndex = 1
                     }
                 }
             }
@@ -55,7 +53,7 @@ Item {
                         cursorShape: Qt.PointingHandCursor
 
                         onClicked: {
-                            stackView.push("HomeScreen.qml")
+                            mainScreensStack.currentIndex = 0
                         }
                     }
                 }
@@ -72,7 +70,7 @@ Item {
                         cursorShape: Qt.PointingHandCursor
 
                         onClicked: {
-                            stackView.push("Levels.qml")
+                            mainScreensStack.currentIndex = 1
                         }
                     }
                 }
@@ -89,7 +87,7 @@ Item {
                         cursorShape: Qt.PointingHandCursor
 
                         onClicked: {
-                            stackView.push(".qml")
+
                         }
                     }
                 }
@@ -106,7 +104,7 @@ Item {
                         cursorShape: Qt.PointingHandCursor
 
                         onClicked: {
-                            stackView.push(".qml")
+
                         }
                     }
                 }
@@ -128,7 +126,7 @@ Item {
                     cursorShape: Qt.PointingHandCursor
 
                     onClicked: {
-                        stackView.push(".qml")
+
                     }
                 }
             }

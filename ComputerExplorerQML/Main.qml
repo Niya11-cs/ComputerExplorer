@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Layouts
 
 Window {
     id: mainWindow
@@ -10,9 +11,24 @@ Window {
     visible: true
     title: qsTr("Computer Explorer")
 
-    StackView {
-        id: stackView
+    StackLayout {
+        id: mainScreensStack
         anchors.fill: parent
-        initialItem: "HomeScreen.qml"
+        currentIndex: 0
+
+        HomeScreen {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+        }
+
+        Levels {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+        }
+
+        Game {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+        }
     }
 }

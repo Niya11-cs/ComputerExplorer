@@ -3,8 +3,6 @@ import QtQuick.Layouts
 import QtQuick.Controls
 
 Item {
-    width: parent.width
-    height: parent.height
 
     Image {
         id: backgroundImage
@@ -38,9 +36,7 @@ Item {
                 cursorShape: Qt.PointingHandCursor
 
                 onClicked: {
-                    if (stackView) {
-                        stackView.push("Levels.qml")
-                    }
+                    mainScreensStack.currentIndex = 1
                 }
             }
 
