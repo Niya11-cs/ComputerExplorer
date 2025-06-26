@@ -29,5 +29,10 @@ Window {
             Layout.fillWidth: true
             Layout.fillHeight: true
         }
+
+        WelcomeTutorial {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+        }
     }
 }

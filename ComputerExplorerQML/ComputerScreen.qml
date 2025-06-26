@@ -21,6 +21,7 @@ Item {
             }
         }
 
+
         Rectangle{
             id: screenBorder
             color: "grey"

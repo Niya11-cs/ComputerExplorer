@@ -34,7 +34,7 @@ Item {
                 cursorShape: Qt.PointingHandCursor
 
                 onClicked: {
-                    mainScreensStack.currentIndex = 1
+                    mainScreensStack.currentIndex = 3
                 }
             }
         }
